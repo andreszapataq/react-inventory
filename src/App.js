@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Tasks from "./components/Tasks"
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [tasks, setTasks] = useState([
     {
         id: 1,
