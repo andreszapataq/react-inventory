@@ -3,7 +3,6 @@ import Header from "./components/Header"
 import Tasks from "./components/Tasks"
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -44,10 +43,29 @@ function App() {
     } */
   ])
 
+  // GITHUB COPILOT TEST
+
+  function lastItemInArray(arr) {
+    return arr[arr.length - 1]
+  }
+
+  let list = [1, 3, 8, 5, 7, 2];
+
+  let result = lastItemInArray(list);
+
+  console.log(result);
+
+  // END GITHUB COPILOT TEST
+
+  // DELETE ITEM
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }
