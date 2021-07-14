@@ -8,19 +8,22 @@ function App() {
       id: 1,
       codigo: 'AT678FD',
       producto: 'DBM Putty 2.50 CC',
-      cantidad: 5
+      cantidad: 5,
+      reminder: true
   },
   {
       id: 2,
       codigo: 'AT679FD',
       producto: 'DBM Putty 5.00 CC',
-      cantidad: 2
+      cantidad: 2,
+      reminder: true
   },
   {
       id: 3,
       codigo: 'AT680FD',
       producto: 'DBM Putty 10.0 CC',
-      cantidad: 7
+      cantidad: 7,
+      reminder: false
   }
 
     /* {
@@ -45,7 +48,7 @@ function App() {
 
   // GITHUB COPILOT TEST
 
-  function lastItemInArray(arr) {
+  /* function lastItemInArray(arr) {
     return arr[arr.length - 1]
   }
 
@@ -53,7 +56,7 @@ function App() {
 
   let result = lastItemInArray(list);
 
-  console.log(result);
+  console.log(result); */
 
   // END GITHUB COPILOT TEST
 
@@ -62,10 +65,15 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  // TOOGLE REMINDER
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No tasks to show'}
     </div>
   );
 }
