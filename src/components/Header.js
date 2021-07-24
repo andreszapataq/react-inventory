@@ -1,19 +1,20 @@
-import { useState } from "react"
+// import { useState } from "react"
 import Button from "./Button"
 
-const Header = ({ title }) => {
-    const [count, setCount] = useState(0)
+const Header = ({ title, onAdd, showAdd }) => {
+    /* const [count, setCount] = useState(0)
     
     const onClick = () => {
         setCount(count + 1)
         console.log(count)
-    }
+    } */
 
     return (
         <header className='header'>
             <h1>{title}</h1>
-            <Button text='Add' onClick={onClick} />
-            <p>You clicked {count} times</p>
+            <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd} />
+            {/* <Button text='Add' onClick={onClick} /> */}
+            {/* <p>You clicked {count} times</p> */}
         </header>
     )
 }

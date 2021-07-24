@@ -1,10 +1,29 @@
-import { useState } from "react"
+import { useState, useEffect  } from "react"
 import Header from "./components/Header"
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask"
 
 function App() {
-  const [tasks, setTasks] = useState([
+  const [showAddTask, setShowAddTask] = useState(false)
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+
+    getTasks()
+  }, [])
+
+  // FETCH TASKS
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:5000/tasks')
+    const data = await res.json()
+
+    return data
+  }
+
     /* {
       id: 1,
       codigo: 'AT678FD',
@@ -27,7 +46,7 @@ function App() {
       reminder: false
   } */
 
-    {
+    /* {
         id: 1,
         text: 'Doctors Appointment',
         day: 'Feb 5th at 2:30pm',
@@ -44,8 +63,7 @@ function App() {
         text: 'Food Shopping',
         day: 'Feb 5th at 2:30pm',
         reminder: false
-    }
-  ])
+    } */
 
   // GITHUB COPILOT TEST
 
@@ -80,8 +98,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No tasks to show'}
     </div>
   );
