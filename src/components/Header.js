@@ -1,4 +1,5 @@
 // import { useState } from "react"
+import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import Button from "./Button"
 
@@ -24,6 +25,10 @@ const Header = ({ title, onAdd, showAdd }) => {
 
 Header.defaultProps = {
     title: "Inventario"
+}
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired
 }
 
 export default Header
