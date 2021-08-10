@@ -21,7 +21,7 @@ function App() {
 
   // FETCH TASKS
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
+    const res = await fetch('http://localhost:5000/stock')
     const data = await res.json()
 
     return data
@@ -29,70 +29,15 @@ function App() {
 
   // FETCH TASK
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const res = await fetch(`http://localhost:5000/stock/${id}`)
     const data = await res.json()
 
     return data
   }
 
-    /* {
-      id: 1,
-      codigo: 'AT678FD',
-      producto: 'DBM Putty 2.50 CC',
-      cantidad: 5,
-      reminder: true
-  },
-  {
-      id: 2,
-      codigo: 'AT679FD',
-      producto: 'DBM Putty 5.00 CC',
-      cantidad: 2,
-      reminder: true
-  },
-  {
-      id: 3,
-      codigo: 'AT680FD',
-      producto: 'DBM Putty 10.0 CC',
-      cantidad: 7,
-      reminder: false
-  } */
-
-    /* {
-        id: 1,
-        text: 'Doctors Appointment',
-        day: 'Feb 5th at 2:30pm',
-        reminder: true
-    },
-    {
-        id: 2,
-        text: 'Meeting at School',
-        day: 'Feb 6th at 1:30pm',
-        reminder: true
-    },
-    {
-        id: 3,
-        text: 'Food Shopping',
-        day: 'Feb 5th at 2:30pm',
-        reminder: false
-    } */
-
-  // GITHUB COPILOT TEST
-
-  /* function lastItemInArray(arr) {
-    return arr[arr.length - 1]
-  }
-
-  let list = [1, 3, 8, 5, 7, 2];
-
-  let result = lastItemInArray(list);
-
-  console.log(result); */
-
-  // END GITHUB COPILOT TEST
-
   // ADD TASK
   const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks', {
+    const res = await fetch('http://localhost:5000/stock', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -111,7 +56,7 @@ function App() {
 
   // DELETE ITEM
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:5000/stock/${id}`, {
       method: 'DELETE'
     })
 
@@ -123,7 +68,7 @@ function App() {
     const taskToToggle = await fetchTask(id)
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`http://localhost:5000/stock/${id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json'

@@ -1,28 +1,28 @@
 {
-  "tasks": [
+  "stock": [
     {
       "id": 1,
-      "text": "Doctors Appointment",
-      "day": "Feb 5th at 2:30pm",
-      "reminder": true
+      "referencia": "DBM Putty 1.00 CC",
+      "codigo": "AT677FD",
+      "cantidad": 3
     },
     {
       "id": 2,
-      "text": "Meeting at School",
-      "day": "Feb 6th at 1:30pm",
-      "reminder": false
+      "referencia": "DBM Putty 2.50 CC",
+      "codigo": "AT678FD",
+      "cantidad": 2
     },
     {
       "id": 3,
-      "text": "Food Shopping",
-      "day": "Feb 5th at 2:30pm",
-      "reminder": true
+      "referencia": "DBM Putty 5.00 CC",
+      "codigo": "AT679FD",
+      "cantidad": 2
     },
     {
-      "text": "Take Task",
-      "day": "Friday",
-      "reminder": false,
-      "id": 4
+      "id": 4,
+      "referencia": "DBM Putty 10.0 CC",
+      "codigo": "AT680FD",
+      "cantidad": 1
     }
   ]
 }
