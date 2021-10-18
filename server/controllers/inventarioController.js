@@ -7,7 +7,7 @@ exports.getTest = async (req, res, next) => {
         {"$match": {"stock.cantidad": {"$gt": 0}}},
         {"$group": {
             "_id": "$_id",
-            // "nombre": "$nombre",
+            "nombre": {"$first": "$nombre"},
             "stock": {"$push": "$stock"}}}
     ]);
 
