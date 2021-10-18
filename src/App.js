@@ -1,103 +1,63 @@
-import { useState, useEffect  } from "react"
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Header from "./components/Header"
-import Tasks from "./components/Tasks"
-import AddTask from "./components/AddTask"
-import Footer from "./components/Footer"
-import About from "./components/About"
+import { useState } from "react"
+import Header from './components/Header'
+import Inventario from './components/Inventario'
 
 function App() {
-  const [showAddTask, setShowAddTask] = useState(false)
-  const [tasks, setTasks] = useState([])
-
-  useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks()
-      setTasks(tasksFromServer)
+  // eslint-disable-next-line no-unused-vars
+  const [inventario, setInventario] = useState([
+    {
+        codigo: "AT677FD",
+        item: "DBM Putty 1.00 CC",
+        cantidad: 4
+    },
+    {
+        codigo: "AT678FD",
+        item: "DBM Putty 2.50 CC",
+        cantidad: 4
+    },
+    {
+        codigo: "AT680FD",
+        item: "DBM Putty 10.0 CC",
+        cantidad: 18
+    },
+    {
+        codigo: "AT804FD",
+        item: "Cancellous Crushed/Chips 10 CC (1-4mm) FD",
+        cantidad: 1
+    },
+    {
+        codigo: "AT805FD",
+        item: "Cancellous Crushed/Chips 10 CC (4-10mm) FD",
+        cantidad: 2
+    },
+    {
+        codigo: "AT305FD",
+        item: "Tricortical Blk 8-15 MM FD",
+        cantidad: 2
+    },
+    {
+        codigo: "AT302FD",
+        item: "Tricortical Blk 16-19 MM FD",
+        cantidad: 1
+    },
+    {
+        codigo: "AT308FD",
+        item: "Tricortical Blk 20-29 MM FD",
+        cantidad: 1
+    },
+    {
+        codigo: "AT447FD",
+        item: "Femoral Head",
+        cantidad: 1
     }
-
-    getTasks()
-  }, [])
-
-  // FETCH TASKS
-  const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/stock')
-    const data = await res.json()
-
-    return data
-  }
-
-  // FETCH TASK
-  const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/stock/${id}`)
-    const data = await res.json()
-
-    return data
-  }
-
-  // ADD TASK
-  const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/stock', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(task)
-    })
-
-    const data = await res.json()
-
-    setTasks([...tasks, data])
-
-    /* const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask]) */
-  }
-
-  // DELETE ITEM
-  const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/stock/${id}`, {
-      method: 'DELETE'
-    })
-
-    setTasks(tasks.filter((task) => task.id !== id))
-  }
-
-  // TOOGLE REMINDER
-  const toggleReminder = async (id) => {
-    const taskToToggle = await fetchTask(id)
-    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
-
-    const res = await fetch(`http://localhost:5000/stock/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(updTask)
-    })
-
-    const data = await res.json()
-
-    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: data.reminder} : task))
-  }
+])
 
   return (
-    <Router>
     <div className="App">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
-      <div className='container'>
-        <Route path='/' exact render={(props) => (
-          <>
-            {showAddTask && <AddTask onAdd={addTask} />}
-            {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No tasks to show'}
-          </>
-        )} />
-        <Route path='/about' component={About} />
-      </div>
-      <Footer />
+      <Header title='Clínica X' />
+      <Inventario inventario={inventario} />
     </div>
-    </Router>
-  );
+  )
 }
 
-export default App;
+export default App
