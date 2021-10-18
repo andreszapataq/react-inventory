@@ -24,7 +24,7 @@ const Header = ({ title, onAdd, showAdd }) => {
 }
 
 Header.defaultProps = {
-    title: "Clínica Santa Gracia"
+    title: "Bodega"
 }
 
 Header.propTypes = {
