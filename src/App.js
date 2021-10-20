@@ -1,60 +1,44 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Header from './components/Header'
 import Inventario from './components/Inventario'
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [inventario, setInventario] = useState([
-    {
-        codigo: "AT677FD",
-        item: "DBM Putty 1.00 CC",
-        cantidad: 4
-    },
-    {
-        codigo: "AT678FD",
-        item: "DBM Putty 2.50 CC",
-        cantidad: 4
-    },
-    {
-        codigo: "AT680FD",
-        item: "DBM Putty 10.0 CC",
-        cantidad: 18
-    },
-    {
-        codigo: "AT804FD",
-        item: "Cancellous Crushed/Chips 10 CC (1-4mm) FD",
-        cantidad: 1
-    },
-    {
-        codigo: "AT805FD",
-        item: "Cancellous Crushed/Chips 10 CC (4-10mm) FD",
-        cantidad: 2
-    },
-    {
-        codigo: "AT305FD",
-        item: "Tricortical Blk 8-15 MM FD",
-        cantidad: 2
-    },
-    {
-        codigo: "AT302FD",
-        item: "Tricortical Blk 16-19 MM FD",
-        cantidad: 1
-    },
-    {
-        codigo: "AT308FD",
-        item: "Tricortical Blk 20-29 MM FD",
-        cantidad: 1
-    },
-    {
-        codigo: "AT447FD",
-        item: "Femoral Head",
-        cantidad: 1
+  const [nombre, setNombre] = useState([])
+  const [inventario, setInventario] = useState([])
+
+  useEffect(() => {
+    const getNombre = async () => {
+      const nombreFS = await fetchNombre()
+      setNombre(nombreFS)
     }
-])
+
+    const getItems = async () => {
+      const itemsFS = await fetchItems()
+      setInventario(itemsFS)
+    }
+
+    getNombre()
+    getItems()
+  }, [])
+
+  const fetchNombre = async () => {
+    const res = await fetch('http://localhost:5004/api/v1/inventario')
+    const data = await res.json()
+
+    return data.data[0].nombre
+  }
+
+  const fetchItems = async () => {
+    const res = await fetch('http://localhost:5004/api/v1/inventario')
+    const data = await res.json()
+
+    console.log(data.data)
+    return data.data[0].stock
+  }
 
   return (
     <div className="App">
-      <Header title='Clínica X' />
+      <Header title={nombre} />
       <Inventario inventario={inventario} />
     </div>
   )
