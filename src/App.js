@@ -5,35 +5,25 @@ import Inventario from './components/Inventario'
 function App() {
   const [nombre, setNombre] = useState([])
   const [inventario, setInventario] = useState([])
+  /* const [obj, setObj] = useState({
+    nombre: [],
+    inventario: []
+  }) */
 
   useEffect(() => {
-    const getNombre = async () => {
-      const nombreFS = await fetchNombre()
-      setNombre(nombreFS)
+    const getInventario = async () => {
+      await fetchInventario()
     }
 
-    const getItems = async () => {
-      const itemsFS = await fetchItems()
-      setInventario(itemsFS)
-    }
-
-    getNombre()
-    getItems()
+    getInventario()
   }, [])
 
-  const fetchNombre = async () => {
+  const fetchInventario = async () => {
     const res = await fetch('http://localhost:5004/api/v1/inventario')
     const data = await res.json()
 
-    return data.data[0].nombre
-  }
-
-  const fetchItems = async () => {
-    const res = await fetch('http://localhost:5004/api/v1/inventario')
-    const data = await res.json()
-
-    console.log(data.data)
-    return data.data[0].stock
+    setNombre(data.data[0].nombre)
+    setInventario(data.data[0].stock)
   }
 
   return (

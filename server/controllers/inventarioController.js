@@ -8,9 +8,8 @@ exports.getTest = async (req, res, next) => {
         {"$group": {
             "_id": "$_id",
             "nombre": {"$first": "$nombre"},
-            "stock": {"$push": "$stock"}}},
-        {"$sort": {"_id": 1}}
-    ]);
+            "stock": {"$push": "$stock"}}}
+    ]).sort({"_id": 1});
 
     /* {"asesor_id": 1}, {"stock": {"$elemMatch": {"cantidad": {"$ne": 0}}}} */
     
