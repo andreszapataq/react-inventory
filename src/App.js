@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
 import Header from './components/Header'
 import Inventario from './components/Inventario'
 import Clientes from "./components/Clientes"
@@ -32,11 +38,21 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Clientes clientes={clientes} />
-      <Header title={nombre} />
-      <Inventario inventario={inventario} />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact>
+              <Link to="/principal">
+                <Clientes clientes={clientes} />
+              </Link>
+          </Route>
+          <Route path="/principal">
+            <Header title={nombre} />
+            <Inventario inventario={inventario} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 }
 
