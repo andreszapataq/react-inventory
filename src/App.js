@@ -13,6 +13,7 @@ function App() {
   const [nombre, setNombre] = useState([])
   const [inventario, setInventario] = useState([])
   const [clientes, setClientes] = useState([])
+  const [asesor, setAsesor] = useState([])
   /* const [obj, setObj] = useState({
     nombre: [],
     inventario: []
@@ -35,6 +36,7 @@ function App() {
     setNombre(data.data[0].nombre)
     setInventario(data.data[0].stock)
     setClientes(data.data)
+    setAsesor(data.data[0].nombre_asesor)
   }
 
   return (
@@ -42,7 +44,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/" exact>
-            <Header title={'Vive Solutions'} />
+            <Header title={asesor} />
             <Link to="/principal">
               <Clientes clientes={clientes} />
             </Link>
