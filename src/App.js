@@ -42,9 +42,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/" exact>
-              <Link to="/principal">
-                <Clientes clientes={clientes} />
-              </Link>
+            <Header title={'Vive Solutions'} />
+            <Link to="/principal">
+              <Clientes clientes={clientes} />
+            </Link>
           </Route>
           <Route path="/principal">
             <Header title={nombre} />
