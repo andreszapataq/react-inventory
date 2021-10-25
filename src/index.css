@@ -69,26 +69,39 @@ a {
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
 
-.item.reminder {
+/* .item.reminder {
   border-left: 5px solid green;
-}
+} */
 
 .item h3 {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1vw;
 }
 
 .item p {
   font-size: 12px;
+}
+
+.item-cantidad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-cantidad p {
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .add-form {
