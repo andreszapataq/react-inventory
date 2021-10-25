@@ -42,15 +42,14 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header title={asesor} />
         <Switch>
           <Route path="/" exact>
-            <Header title={asesor} />
             <Link to="/principal">
               <Clientes clientes={clientes} />
             </Link>
           </Route>
           <Route path="/principal">
-            <Header title={nombre} />
             <Inventario inventario={inventario} />
           </Route>
         </Switch>
