@@ -2,14 +2,15 @@ import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
+  // Link
 } from "react-router-dom"
 import Header from './components/Header'
 import Inventario from './components/Inventario'
 import Clientes from "./components/Clientes"
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [nombre, setNombre] = useState([])
   const [inventario, setInventario] = useState([])
   const [clientes, setClientes] = useState([])
@@ -44,12 +45,10 @@ function App() {
       <div className="App">
         <Header title={asesor} />
         <Switch>
-          <Route path="/" exact>
-            <Link to="/principal">
-              <Clientes clientes={clientes} />
-            </Link>
+          <Route exact path="/" >
+            <Clientes clientes={clientes} />
           </Route>
-          <Route path="/principal">
+          <Route path="/inventario/:id">
             <Inventario inventario={inventario} />
           </Route>
         </Switch>
