@@ -7,13 +7,13 @@ import {
 } from "react-router-dom"
 import Header from './components/Header'
 import Inventario from './components/Inventario'
-import Clientes from "./components/Clientes"
+import Bodegas from "./components/Bodegas"
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [nombre, setNombre] = useState([])
+  const [nombreBodega, setNombreBodega] = useState([])
   const [inventario, setInventario] = useState([])
-  const [clientes, setClientes] = useState([])
+  const [bodegas, setBodegas] = useState([])
   const [asesor, setAsesor] = useState([])
   /* const [obj, setObj] = useState({
     nombre: [],
@@ -34,9 +34,9 @@ function App() {
 
     console.log(data.data)
 
-    setNombre(data.data[0].nombre)
+    setNombreBodega(data.data[0].nombre)
     setInventario(data.data[0].stock)
-    setClientes(data.data)
+    setBodegas(data.data)
     setAsesor(data.data[0].nombre_asesor)
   }
 
@@ -46,7 +46,7 @@ function App() {
         <Header title={asesor} />
         <Switch>
           <Route exact path="/" >
-            <Clientes clientes={clientes} />
+            <Bodegas bodegas={bodegas} />
           </Route>
           <Route path="/inventario/:id">
             <Inventario inventario={inventario} />
