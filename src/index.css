@@ -27,8 +27,9 @@ a {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  /* justify-content: space-between;
+  align-items: center; */
   margin-bottom: 20px;
   background: #1E509A;
   color: #fff;
