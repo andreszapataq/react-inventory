@@ -43,7 +43,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header title={asesor} />
+        <Header title={asesor} data={bodegas} />
         <Switch>
           <Route exact path="/" >
             <Bodegas bodegas={bodegas} />
