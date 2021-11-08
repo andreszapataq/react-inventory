@@ -5,6 +5,7 @@ import {
   Route
   // Link
 } from "react-router-dom"
+// import { InputText } from  "@ness-digital/react-ui"
 import Header from './components/Header'
 import Inventario from './components/Inventario'
 import Bodegas from "./components/Bodegas"
@@ -43,7 +44,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header title={asesor} data={bodegas} />
+        {["/", "/inventario/:id"].map((path, index) =>
+          <Route key={index} path={path}><Header asesor={asesor} data={bodegas} /></Route>)}
         <Switch>
           <Route exact path="/" >
             <Bodegas bodegas={bodegas} />
@@ -52,6 +54,7 @@ function App() {
             <Inventario inventario={inventario} />
           </Route>
         </Switch>
+        {/* <InputText label="Institución" /> */}
       </div>
     </Router>
   )
