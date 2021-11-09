@@ -1,17 +1,15 @@
+import Layout from "./layout/Layout"
 import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
   Route
-  // Link
 } from "react-router-dom"
-// import { InputText } from  "@ness-digital/react-ui"
-import Header from './components/Header'
+// import { InputText } from "@ness-digital/react-ui"
 import Inventario from './components/Inventario'
 import Bodegas from "./components/Bodegas"
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
   const [nombreBodega, setNombreBodega] = useState([])
   const [inventario, setInventario] = useState([])
   const [bodegas, setBodegas] = useState([])
@@ -44,17 +42,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {["/", "/inventario/:id"].map((path, index) =>
-          <Route key={index} path={path}><Header asesor={asesor} data={bodegas} /></Route>)}
-        <Switch>
-          <Route exact path="/" >
-            <Bodegas bodegas={bodegas} />
-          </Route>
-          <Route path="/inventario/:id">
-            <Inventario inventario={inventario} />
-          </Route>
-        </Switch>
-        {/* <InputText label="Institución" /> */}
+        <Layout asesor={asesor} data={bodegas}>
+          <Switch>
+            <Route exact path="/" >
+              <Bodegas bodegas={bodegas} />
+            </Route>
+            <Route path="/inventario/:id">
+              <Inventario inventario={inventario} />
+            </Route>
+          </Switch>
+          {/* <InputText label="Institución" /> */}
+        </Layout>
       </div>
     </Router>
   )

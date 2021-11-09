@@ -6,12 +6,12 @@ const Header = ({ asesor, data }) => {
     
     return (
         <header className='header'>
-            {location.pathname === "/" && <h1>{`Hola ${asesor}`}</h1>}
+            {location.pathname === "/" &&
+            <div>
+                <p>Hola</p>
+                <h1>{asesor}</h1>
+            </div>}
             {location.pathname === `/inventario/${id}` && <h1>{data[id].nombre}</h1>}
-            {console.log(id)}
-            {/* {data[].nombre} */}
-            {/* {console.log(location.pathname)} */}
-            {/* {console.log(location.pathname.split("/").pop())} */}
         </header>
     )
 }
