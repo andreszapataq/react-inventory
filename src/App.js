@@ -10,10 +10,10 @@ import Inventario from './components/Inventario'
 import Bodegas from "./components/Bodegas"
 
 function App() {
-  const [nombreBodega, setNombreBodega] = useState([])
-  const [inventario, setInventario] = useState([])
-  const [bodegas, setBodegas] = useState([])
   const [asesor, setAsesor] = useState([])
+  const [inventario, setInventario] = useState([])
+  const [data, setData] = useState([])
+
   /* const [obj, setObj] = useState({
     nombre: [],
     inventario: []
@@ -33,26 +33,27 @@ function App() {
 
     console.log(data.data)
 
-    setNombreBodega(data.data[0].nombre)
-    setInventario(data.data[0].stock)
-    setBodegas(data.data)
     setAsesor(data.data[0].nombre_asesor)
+    setInventario(data.data[0].stock)
+    setData(data.data)
   }
 
   return (
     <Router>
       <div className="App">
-        <Layout asesor={asesor} data={bodegas}>
           <Switch>
             <Route exact path="/" >
-              <Bodegas bodegas={bodegas} />
+              <Layout asesor={asesor}>
+                <Bodegas bodegas={data} />
+              </Layout>
             </Route>
             <Route path="/inventario/:id">
-              <Inventario inventario={inventario} />
+              <Layout bodega={data}>
+                <Inventario inventario={inventario} />
+              </Layout>
             </Route>
           </Switch>
           {/* <InputText label="Institución" /> */}
-        </Layout>
       </div>
     </Router>
   )
