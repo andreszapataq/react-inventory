@@ -1,4 +1,3 @@
-import Layout from "./layout/Layout"
 import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
@@ -6,8 +5,8 @@ import {
   Route
 } from "react-router-dom"
 // import { InputText } from "@ness-digital/react-ui"
-import Inventario from './components/Inventario'
 import Bodegas from "./components/Bodegas"
+import Inventario from './components/Inventario'
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -41,19 +40,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-          <Switch>
-            <Route exact path="/" >
-              <Layout asesor={asesor}>
-                <Bodegas bodegas={data} />
-              </Layout>
-            </Route>
-            <Route path="/inventario/:id">
-              <Layout bodega={data}>
-                <Inventario inventario={inventario} />
-              </Layout>
-            </Route>
-          </Switch>
-          {/* <InputText label="Institución" /> */}
+        <Switch>
+          <Route exact path="/" >
+            <Bodegas asesor={asesor} bodegas={data} />
+          </Route>
+          <Route path="/inventario/:id">
+            <Inventario bodega={data} inventario={inventario} />
+          </Route>
+        </Switch>
+        {/* <InputText label="Institución" /> */}
       </div>
     </Router>
   )
