@@ -1,20 +1,8 @@
-import { useLocation, useParams } from 'react-router-dom'
-
-const Header = ({ asesor, bodega }) => {
-    let location = useLocation()
-    const { id } = useParams()
-    
+const Header = ({ asesor, bodega, bodegax }) => {
     return (
         <header className='header'>
-            {location.pathname === "/" &&
-                <div>
-                    <p>Hola</p>
-                    <h1>{asesor}</h1>
-                </div>
-            }
-            {location.pathname === `/inventario/${id}` &&
-                <h1>{bodega[id].nombre}</h1>
-            }
+            <h1>{bodegax}</h1>
+            {console.log(bodegax)}
         </header>
     )
 }

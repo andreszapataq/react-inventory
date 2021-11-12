@@ -7,9 +7,13 @@ const Bodegas = ({ bodegas, asesor }) => {
         <Layout asesor={asesor}>
             {bodegas.map((bodega, index) => (
                 <div key={bodega._id}>
-                    <Link to={`/inventario/${index}`}>
+                    <Link to={{
+                        pathname: `/inventario/${index}`,
+                        state: {bodegax: bodega}
+                    }}>
                         <Bodega bodega={bodega} />
                     </Link>
+                    {console.log(bodega)}
                 </div>
             ))}
         </Layout>
