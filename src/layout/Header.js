@@ -1,8 +1,13 @@
-const Header = ({ asesor, bodega, bodegax }) => {
+const Header = ({ asesor, bodega, isHome }) => {
     return (
         <header className='header'>
-            <h1>{bodegax}</h1>
-            {console.log(bodegax)}
+            {isHome && (
+                <div>
+                    <p>Hola</p>
+                    <h1>{asesor}</h1>
+                </div>
+            )}
+            {bodega && <h1>{bodega.nombre}</h1>}
         </header>
     )
 }

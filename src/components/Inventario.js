@@ -1,10 +1,12 @@
 import Layout from "../layout/Layout"
 import Item from "./Item"
 
-const Inventario = ({ bodega, inventario }) => {
+const Inventario = (props) => {
+    const bodega = props.location.state.bodega
+    
     return (
         <Layout bodega={bodega}>
-            {inventario.map((item) => (
+            {bodega.stock.map((item) => (
                 <Item key={item.codigo} item={item} />
             ))}
         </Layout>

@@ -4,13 +4,11 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-// import { InputText } from "@ness-digital/react-ui"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
 
 function App() {
   const [asesor, setAsesor] = useState([])
-  const [inventario, setInventario] = useState([])
   const [data, setData] = useState([])
 
   /* const [obj, setObj] = useState({
@@ -33,7 +31,6 @@ function App() {
     console.log(data.data)
 
     setAsesor(data.data[0].nombre_asesor)
-    setInventario(data.data[0].stock)
     setData(data.data)
   }
 
@@ -44,11 +41,8 @@ function App() {
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
           </Route>
-          <Route path="/inventario/:id">
-            <Inventario bodega={data} inventario={inventario} />
-          </Route>
+          <Route exact path="/inventario/:id" component={Inventario} />
         </Switch>
-        {/* <InputText label="Institución" /> */}
       </div>
     </Router>
   )

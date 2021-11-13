@@ -4,16 +4,15 @@ import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas, asesor }) => {
     return (
-        <Layout asesor={asesor}>
+        <Layout asesor={asesor} isHome={true}>
             {bodegas.map((bodega, index) => (
                 <div key={bodega._id}>
                     <Link to={{
                         pathname: `/inventario/${index}`,
-                        state: {bodegax: bodega}
+                        state: { bodega }
                     }}>
                         <Bodega bodega={bodega} />
                     </Link>
-                    {console.log(bodega)}
                 </div>
             ))}
         </Layout>
