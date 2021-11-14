@@ -11,6 +11,7 @@ const Bodegas = ({ bodegas, asesor }) => {
                         pathname: `/inventario/${index}`,
                         state: { bodega }
                     }}>
+                        {console.log(bodega)}
                         <Bodega bodega={bodega} />
                     </Link>
                 </div>

@@ -11,11 +11,6 @@ function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
 
-  /* const [obj, setObj] = useState({
-    nombre: [],
-    inventario: []
-  }) */
-
   useEffect(() => {
     const getInventario = async () => {
       await fetchInventario()
