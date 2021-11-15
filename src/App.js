@@ -6,6 +6,7 @@ import {
 } from "react-router-dom"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
+import Login from "./components/Login"
 
 function App() {
   const [asesor, setAsesor] = useState([])
