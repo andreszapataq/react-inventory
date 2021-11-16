@@ -33,6 +33,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <Login />
         <Switch>
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
