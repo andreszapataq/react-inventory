@@ -25,6 +25,11 @@ a {
   border-radius: 5px;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   display: flex;
   flex-direction: column;

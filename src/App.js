@@ -3,10 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
+  // useHistory
 } from "react-router-dom"
+import Login from "./components/Login"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
-import Login from "./components/Login"
+
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -30,11 +32,18 @@ function App() {
     setData(data.data)
   }
 
+  /* const history = useHistory()
+
+  const onClick = () => {
+    history.push("/inventario/0")
+    console.log('Click');
+  } */
+
   return (
     <Router>
       <div className="App">
-      <Login />
         <Switch>
+          <Route exact path="/login" component={Login} />
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
           </Route>
