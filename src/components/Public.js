@@ -1,8 +1,8 @@
 const Public = () => {
     return (
-        <div>
-            
-        </div>
+        <h3>
+            Public
+        </h3>
     )
 }
 

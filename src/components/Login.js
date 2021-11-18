@@ -8,7 +8,6 @@ const Login = ({ onClick }) => {
             <Link to="/">
                 <button type="button">Entrar</button>
             </Link>
-            {/* <button type="button" onClick={onClick}>Entrar</button> */}
         </div>
     )
 }

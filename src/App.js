@@ -3,12 +3,23 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-  // useHistory
 } from "react-router-dom"
-import Login from "./components/Login"
+// import Login from "./components/Login"
+import Public from "./components/Public"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
 
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100); // fake async
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -32,18 +43,13 @@ function App() {
     setData(data.data)
   }
 
-  /* const history = useHistory()
-
-  const onClick = () => {
-    history.push("/inventario/0")
-    console.log('Click');
-  } */
-
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/auth" >
+            <Public />
+          </Route>
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
           </Route>
