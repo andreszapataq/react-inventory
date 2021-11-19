@@ -2,7 +2,8 @@ import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom"
 // import Login from "./components/Login"
 import Public from "./components/Public"
@@ -19,7 +20,17 @@ const fakeAuth = {
     this.isAuthenticated = false;
     setTimeout(cb, 100);
   }
-};
+}
+
+function PrivateRoute({ children, ...rest }) {
+  return(
+    <Route {...rest} render={() => {
+      return fakeAuth.isAuthenticated === true
+        ? children
+        : <Redirect to='/login' />
+    }} />
+  )
+}
 
 function App() {
   const [asesor, setAsesor] = useState([])
