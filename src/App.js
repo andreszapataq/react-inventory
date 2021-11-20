@@ -2,35 +2,10 @@ import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom"
-// import Login from "./components/Login"
-import Public from "./components/Public"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 100);
-  }
-}
-
-function PrivateRoute({ children, ...rest }) {
-  return(
-    <Route {...rest} render={() => {
-      return fakeAuth.isAuthenticated === true
-        ? children
-        : <Redirect to='/login' />
-    }} />
-  )
-}
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -58,9 +33,6 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/auth" >
-            <Public />
-          </Route>
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
           </Route>
