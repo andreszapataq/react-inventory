@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import Login from "./components/Login"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
 
@@ -33,6 +34,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route exact path="/login" component={Login} />
           <Route exact path="/" >
             <Bodegas asesor={asesor} bodegas={data} />
           </Route>
