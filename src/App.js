@@ -2,11 +2,40 @@ import { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect // REDIRECT DE LA LÍNEA 32?
 } from "react-router-dom"
 import Login from "./components/Login"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
+import { Component } from "react" // COMPONENT DE LA LÍNEA 14?
+import Layout from "./layout/Layout"
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const [isLogged, setIsLogged] = useState(true)
+  const [sessionExpired, setSessionExpired] = useState(false)
+  
+  if(sessionExpired) {
+    setSessionExpired(true)
+    return <Login />
+  }
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isLogged ? (
+          <div className="App">
+            <Layout>
+              <Component {...props} />
+            </Layout>
+          </div>
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  )
+}
 
 function App() {
   const [asesor, setAsesor] = useState([])
