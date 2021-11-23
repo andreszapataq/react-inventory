@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect // REDIRECT DE LA LÍNEA 32?
+  Redirect // REDIRECT DE LA LÍNEA 33?
 } from "react-router-dom"
 import Login from "./components/Login"
 import Bodegas from "./components/Bodegas"
@@ -11,10 +11,10 @@ import Inventario from './components/Inventario'
 import { Component } from "react" // COMPONENT DE LA LÍNEA 14?
 import Layout from "./layout/Layout"
 
+const [isLogged, setIsLogged] = []
+const [sessionExpired, setSessionExpired] = []
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const [isLogged, setIsLogged] = useState(true)
-  const [sessionExpired, setSessionExpired] = useState(false)
-  
   if(sessionExpired) {
     setSessionExpired(true)
     return <Login />
@@ -31,6 +31,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           </div>
         ) : (
           <Redirect to="/login" />
+        )
+      }
+    />
+  )
+}
+
+const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isLogged && restricted ? (
+          <Redirect to={props.path} />
+        ) : (
+          <Component {...props} />
         )
       }
     />
