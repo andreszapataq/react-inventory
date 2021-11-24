@@ -8,7 +8,7 @@ import {
 import Login from "./components/Login"
 import Bodegas from "./components/Bodegas"
 import Inventario from './components/Inventario'
-import { Component } from "react" // COMPONENT DE LA LÍNEA 14?
+import { Component } from "react" // COMPONENT DE LA LÍNEA 17?
 import Layout from "./layout/Layout"
 
 const [isLogged, setIsLogged] = []
