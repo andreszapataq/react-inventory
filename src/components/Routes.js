@@ -43,7 +43,7 @@ const Routes = () => {
     return (
         <div>
             <Switch>
-
+                <PublicRoute restricted={true} component={Login} path="/login" exact />
             </Switch>
         </div>
     )
