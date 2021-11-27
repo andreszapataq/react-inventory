@@ -44,6 +44,8 @@ const Routes = () => {
         <div>
             <Switch>
                 <PublicRoute restricted={true} component={Login} path="/login" exact />
+                <PrivateRoute component={Bodegas} exact path="/" />
+                <PrivateRoute component={Inventario} exact path="/inventario/:id" />
             </Switch>
         </div>
     )
