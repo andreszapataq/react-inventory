@@ -1,7 +1,18 @@
-import { Redirect, Switch } from "react-router-dom" // REACT ROUTER OR DOM?
+import { useState, useEffect } from "react"
+import {
+    Route,
+    Redirect,
+    Switch
+} from "react-router-dom"
 import Layout from "../layout/Layout"
+import Login from "./Login"
+import Bodegas from "./Bodegas"
+import Inventario from "./Inventario"
 
 const Routes = () => {
+    const [isLogged, setIsLogged] = useState([])
+    const [sessionExpired, setSessionExpired] = useState([])
+
     const PrivateRoute = ({ component: Component, ...rest }) => {
         if(sessionExpired) {
           setSessionExpired(true)
