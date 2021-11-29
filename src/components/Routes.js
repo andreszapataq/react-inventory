@@ -10,8 +10,28 @@ import Bodegas from "./Bodegas"
 import Inventario from "./Inventario"
 
 const Routes = () => {
+    const [asesor, setAsesor] = useState([])
+    const [data, setData] = useState([])
     const [isLogged, setIsLogged] = useState([])
     const [sessionExpired, setSessionExpired] = useState([])
+
+    useEffect(() => {
+        const getInventario = async () => {
+        await fetchInventario()
+        }
+
+        getInventario()
+    }, [])
+
+    const fetchInventario = async () => {
+        const res = await fetch('http://localhost:5004/api/v1/inventario')
+        const data = await res.json()
+
+        console.log(data.data)
+
+        setAsesor(data.data[0].nombre_asesor)
+        setData(data.data)
+    }
 
     const PrivateRoute = ({ component: Component, ...rest }) => {
         if(sessionExpired) {
@@ -54,7 +74,8 @@ const Routes = () => {
     return (
         <div>
             <Switch>
-                <PublicRoute restricted={true} component={Login} path="/login" exact />
+                <PublicRoute restricted={true} component={Login} exact path="/login" />
+                
                 <PrivateRoute component={Bodegas} exact path="/" />
                 <PrivateRoute component={Inventario} exact path="/inventario/:id" />
             </Switch>
