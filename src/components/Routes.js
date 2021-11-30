@@ -12,8 +12,8 @@ import Inventario from "./Inventario"
 const Routes = () => {
     const [asesor, setAsesor] = useState([])
     const [data, setData] = useState([])
-    const [isLogged, setIsLogged] = useState([])
-    const [sessionExpired, setSessionExpired] = useState([])
+    const [isLogged, setIsLogged] = useState(true)
+    const [sessionExpired, setSessionExpired] = useState(false)
 
     useEffect(() => {
         const getInventario = async () => {
@@ -75,7 +75,7 @@ const Routes = () => {
         <div>
             <Switch>
                 <PublicRoute restricted={true} component={Login} exact path="/login" />
-                
+
                 <PrivateRoute component={Bodegas} exact path="/" />
                 <PrivateRoute component={Inventario} exact path="/inventario/:id" />
             </Switch>
