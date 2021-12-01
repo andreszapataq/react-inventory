@@ -4,7 +4,7 @@ import {
     Redirect,
     Switch
 } from "react-router-dom"
-import Layout from "../layout/Layout"
+// import Layout from "../layout/Layout"
 import Login from "./Login"
 import Bodegas from "./Bodegas"
 import Inventario from "./Inventario"
@@ -12,8 +12,7 @@ import Inventario from "./Inventario"
 const Routes = () => {
     const [asesor, setAsesor] = useState([])
     const [data, setData] = useState([])
-    const [isLogged, setIsLogged] = useState(true)
-    const [sessionExpired, setSessionExpired] = useState(false)
+    const [isLogged, setIsLogged] = useState(false)
 
     useEffect(() => {
         const getInventario = async () => {
@@ -22,6 +21,10 @@ const Routes = () => {
 
         getInventario()
     }, [])
+
+    const onClick = () => {
+        setIsLogged(true)
+    }
 
     const fetchInventario = async () => {
         const res = await fetch('http://localhost:5004/api/v1/inventario')
@@ -34,8 +37,8 @@ const Routes = () => {
     }
 
     const PrivateRoute = ({ component: Component, ...rest }) => {
-        if(sessionExpired) {
-          setSessionExpired(true)
+        if(!isLogged) {
+          setIsLogged(false)
           return <Login />
         }
         return (
@@ -44,9 +47,9 @@ const Routes = () => {
             render={(props) =>
               isLogged ? (
                 <div className="App">
-                  <Layout>
+                  {/* <Layout> */}
                     <Component {...props} />
-                  </Layout>
+                  {/* </Layout> */}
                 </div>
               ) : (
                 <Redirect to="/login" />
@@ -74,9 +77,13 @@ const Routes = () => {
     return (
         <div>
             <Switch>
-                <PublicRoute restricted={true} component={Login} exact path="/login" />
+                <PublicRoute restricted={true} exact path="/login">
+                    <Login onClick={onClick} />
+                </PublicRoute>
 
-                <PrivateRoute component={Bodegas} exact path="/" />
+                <PrivateRoute exact path="/">
+                    <Bodegas asesor={asesor} bodegas={data} />
+                </PrivateRoute>
                 <PrivateRoute component={Inventario} exact path="/inventario/:id" />
             </Switch>
         </div>
