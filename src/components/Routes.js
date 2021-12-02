@@ -19,6 +19,11 @@ const Routes = () => {
         await fetchInventario()
         }
 
+        const getLogged = () => {
+            onClick()
+        }
+
+        getLogged()
         getInventario()
     }, [])
 
