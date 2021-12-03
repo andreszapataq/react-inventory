@@ -1,95 +1,93 @@
-import { useState, useEffect } from "react"
-import {
-    Route,
-    Redirect,
-    Switch
-} from "react-router-dom"
-import Login from "./Login"
-import Bodegas from "./Bodegas"
-import Inventario from "./Inventario"
+import { useState, useEffect } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
+import Login from "./Login";
+import Bodegas from "./Bodegas";
+import Inventario from "./Inventario";
 
 const Routes = () => {
-    const [asesor, setAsesor] = useState([])
-    const [data, setData] = useState([])
-    const [isLogged, setIsLogged] = useState(false)
+  const [asesor, setAsesor] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLogged, setIsLogged] = useState(false);
+  const [user, setUser] = useState("");
 
-    useEffect(() => {
-        const getInventario = async () => {
-        await fetchInventario()
-        }
+  // useEffect(() => {
+  // const getInventario = async () => {
+  // await fetchInventario()
+  // };
+  // const getLogged = () => {
+  //   onClick();
+  // };
+  // getLogged();
+  // getInventario();
+  // }, []);
 
-        const getLogged = () => {
-            onClick()
-        }
-
-        getLogged()
-        getInventario()
-    }, [])
-
-    const onClick = () => {
-        setIsLogged(true)
+  const onClick = () => {
+    console.log("asdfds");
+    if (user === "cali") {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
     }
+  };
 
-    const fetchInventario = async () => {
-        const res = await fetch('http://localhost:5004/api/v1/inventario')
-        const data = await res.json()
+  const onChange = (value) => {
+    console.log(value);
+    setUser(value);
+  };
 
-        console.log(data.data)
+  const fetchInventario = async () => {
+    const res = await fetch("http://localhost:5004/api/v1/inventario");
+    const data = await res.json();
 
-        setAsesor(data.data[0].nombre_asesor)
-        setData(data.data)
-    }
+    console.log(data.data);
 
-    const PrivateRoute = ({ component: Component, ...rest }) => {
-        if(!isLogged) {
-          setIsLogged(false)
-          return <Login />
-        }
-        return (
-          <Route
-            {...rest}
-            render={(props) =>
-              isLogged ? (
-                <div>
-                    <Component {...props} />
-                </div>
-              ) : (
-                <Redirect to="/login" />
-              )
-            }
-          />
-        )
-    }
+    setAsesor(data.data[0].nombre_asesor);
+    setData(data.data);
+  };
 
-    const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-        return (
-          <Route
-            {...rest}
-            render={(props) =>
-              isLogged && restricted ? (
-                <Redirect to={props.path} />
-              ) : (
-                <Component {...props} />
-              )
-            }
-          />
-        )
-    }
-    
+  const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
-        <div>
-            <Switch>
-                <PublicRoute restricted={true} exact path="/login">
-                    <Login onClick={onClick} />
-                </PublicRoute>
+      <Route
+        {...rest}
+        render={(props) =>
+          isLogged ? (
+            <div className="App">
+              {/* <Navigation /> */}
+              <main>
+                <Component {...props} />
+              </main>
+            </div>
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+    );
+  };
 
-                <PrivateRoute exact path="/">
-                    <Bodegas asesor={asesor} bodegas={data} />
-                </PrivateRoute>
-                <PrivateRoute component={Inventario} exact path="/inventario/:id" />
-            </Switch>
-        </div>
-    )
-}
+  const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        render={(props) =>
+          isLogged && restricted ? (
+            <Redirect to={props.path} />
+          ) : (
+            <Component {...props} />
+          )
+        }
+      />
+    );
+  };
+  return (
+    <div>
+      <Switch>
+        <PublicRoute restricted={true} component={Login} path="/login" exact />
+        <PrivateRoute component={Bodegas} path="/" exact />
+        <PrivateRoute component={Inventario} path="/inventario/:id" exact />
+      </Switch>
+    </div>
+  );
+};
 
-export default Routes
+export default Routes;

@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const Login = ({onClick}) => {
-    return (
-        <div className='login'>
-            <input type="text" />
-            <input type="password" />
-            <Link to="/">
-                <button type="button" onClick={onClick}>Entrar</button>
-            </Link>
-        </div>
-    )
-}
+const Login = ({ onClick, onChange }) => {
+  return (
+    <div className="login">
+      <input type="text" onChange={(e) => onChange(e.target.value)} />
+      <button type="button" onClick={() => onClick()}>
+        Entrar
+      </button>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
