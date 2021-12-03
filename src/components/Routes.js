@@ -4,7 +4,6 @@ import {
     Redirect,
     Switch
 } from "react-router-dom"
-// import Layout from "../layout/Layout"
 import Login from "./Login"
 import Bodegas from "./Bodegas"
 import Inventario from "./Inventario"
@@ -51,10 +50,8 @@ const Routes = () => {
             {...rest}
             render={(props) =>
               isLogged ? (
-                <div className="App">
-                  {/* <Layout> */}
+                <div>
                     <Component {...props} />
-                  {/* </Layout> */}
                 </div>
               ) : (
                 <Redirect to="/login" />
