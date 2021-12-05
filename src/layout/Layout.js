@@ -1,11 +1,12 @@
+import { Outlet } from 'react-router'
 import Header from './Header'
 import Footer from './Footer'
 
-const Layout = ({ children, asesor, bodega, isHome }) => {
+const Layout = ({ asesor, bodega, isHome }) => {
     return (
         <div>
             <Header asesor={asesor} bodega={bodega} isHome={isHome} />
-            {children}
+            <Outlet />
             <Footer />
         </div>
     )

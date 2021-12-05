@@ -1,10 +1,10 @@
-import Layout from '../layout/Layout'
 import { Link } from 'react-router-dom'
 import Bodega from "./Bodega"
 
-const Bodegas = ({ bodegas, asesor }) => {
+const Bodegas = ({ bodegas }) => {
+    console.log("Bodegas", bodegas)
     return (
-        <Layout asesor={asesor} isHome={true}>
+        <div>
             {bodegas.map((bodega, index) => (
                 <div key={bodega._id}>
                     <Link to={{
@@ -16,7 +16,7 @@ const Bodegas = ({ bodegas, asesor }) => {
                     </Link>
                 </div>
             ))}
-        </Layout>
+        </div>
     )
 }
 
