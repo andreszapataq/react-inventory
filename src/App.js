@@ -3,9 +3,10 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import Layout from "./layout/Layout"
 import Login from "./components/Login"
+import Layout from "./layout/Layout"
 import Bodegas from "./components/Bodegas"
+import Inventario from "./components/Inventario"
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -45,6 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<Layout asesor={asesor} isHome={true} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
+          <Route path="/inventario/:id" element={<Inventario />} />
         </Route>
       </Routes>
     </div>

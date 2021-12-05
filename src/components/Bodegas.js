@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas }) => {
-    console.log("Bodegas", bodegas)
     return (
         <div>
             {bodegas.map((bodega, index) => (
@@ -11,7 +10,6 @@ const Bodegas = ({ bodegas }) => {
                         pathname: `/inventario/${index}`,
                         state: { bodega }
                     }}>
-                        {console.log(bodega)}
                         <Bodega bodega={bodega} />
                     </Link>
                 </div>
