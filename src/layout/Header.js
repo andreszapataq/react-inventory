@@ -1,13 +1,18 @@
-const Header = ({ asesor, bodega, isHome }) => {
+import { useLocation } from "react-router-dom"
+
+const Header = ({ asesor }) => {
+    let location = useLocation()
+    const bodega = location.state?.bodega.nombre
+    
     return (
         <header className='header'>
-            {isHome && (
+            {location.pathname === "/" && (
                 <div>
                     <p>Hola</p>
                     <h1>{asesor}</h1>
                 </div>
             )}
-            {bodega && <h1>{bodega.nombre}</h1>}
+            {bodega && <h1>{bodega}</h1>}
         </header>
     )
 }

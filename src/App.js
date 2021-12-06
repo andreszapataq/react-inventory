@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route element={<Layout asesor={asesor} isHome={true} />}>
+        <Route element={<Layout asesor={asesor} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
         </Route>
