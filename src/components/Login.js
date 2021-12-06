@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
-const Login = ({onClick}) => {
+const Login = () => {
     return (
         <div className='login'>
             <input type="text" />
             <input type="password" />
             <Link to="/">
-                <button type="button" onClick={onClick}>Entrar</button>
+                <button type="button">Entrar</button>
             </Link>
         </div>
     )

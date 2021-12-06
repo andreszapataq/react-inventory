@@ -1,6 +1,10 @@
+import { useLocation } from "react-router-dom"
 import Item from "./Item"
 
-const Inventario = ({ bodega }) => {
+const Inventario = () => {
+    let location = useLocation()
+    const bodega = location.state.bodega
+
     return (
         <div>
             {bodega.stock.map((item) => (

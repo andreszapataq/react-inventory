@@ -11,24 +11,14 @@ import Inventario from "./components/Inventario"
 function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
-  // const [isLogged, setIsLogged] = useState(false)
 
   useEffect(() => {
     const getInventario = async () => {
     await fetchInventario()
     }
 
-    /* const getLogged = () => {
-      onClick()
-    }
-
-    getLogged() */
     getInventario()
   }, [])
-
-  /* const onClick = () => {
-    setIsLogged(true)
-  } */
 
   const fetchInventario = async () => {
     const res = await fetch('http://localhost:5004/api/v1/inventario')

@@ -6,10 +6,7 @@ const Bodegas = ({ bodegas }) => {
         <div>
             {bodegas.map((bodega, index) => (
                 <div key={bodega._id}>
-                    <Link to={{
-                        pathname: `/inventario/${index}`,
-                        state: { bodega }
-                    }}>
+                    <Link to={`/inventario/${index}`} state={{bodega}}>
                         <Bodega bodega={bodega} />
                     </Link>
                 </div>
