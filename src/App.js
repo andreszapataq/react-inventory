@@ -4,13 +4,14 @@ import {
   Route
 } from "react-router-dom"
 import Login from "./components/Login"
-import Layout from "./layout/Layout"
+import PrivateLayout from "./layout/PrivateLayout"
 import Bodegas from "./components/Bodegas"
 import Inventario from "./components/Inventario"
 
 function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
+  const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('estaPegao')))
 
   useEffect(() => {
     const getInventario = async () => {
@@ -30,11 +31,22 @@ function App() {
     setData(data.data)
   }
 
+  const login = () => {
+    setIslogged(true)
+    localStorage.setItem('estaPegao', true)
+  }
+
+  const logout = () => {
+    setIslogged(false)
+    localStorage.setItem('estaPegao', false)
+  }
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route element={<Layout asesor={asesor} />}>
+        <Route path="/login" element={<Login login={login} />} />
+
+        <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
         </Route>
