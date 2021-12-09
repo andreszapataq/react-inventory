@@ -11,7 +11,7 @@ import Inventario from "./components/Inventario"
 function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
-  const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('estaPegao')))
+  const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
 
   useEffect(() => {
     const getInventario = async () => {
@@ -33,12 +33,12 @@ function App() {
 
   const login = () => {
     setIslogged(true)
-    localStorage.setItem('estaPegao', true)
+    localStorage.setItem('logged', true)
   }
 
   const logout = () => {
     setIslogged(false)
-    localStorage.setItem('estaPegao', false)
+    localStorage.setItem('logged', false)
   }
 
   return (
