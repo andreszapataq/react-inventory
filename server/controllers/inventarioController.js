@@ -38,7 +38,7 @@ exports.getTest = async (req, res, next) => {
               '$push': '$stock'
             }, 
             'nombre_asesor': {
-              '$first': '$nombre_asesor.nombre_1'
+              '$first': '$nombre_asesor.nombres'
             }
           }
         }, {
