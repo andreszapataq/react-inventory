@@ -13,7 +13,7 @@ const Header = ({ asesor, logout }) => {
                 </div>
             )}
             {bodega && <h1>{bodega}</h1>}
-            <button onClick={logout}>Logout</button>
+            <button onClick={logout}>Cerrar sesión</button>
         </header>
     )
 }
