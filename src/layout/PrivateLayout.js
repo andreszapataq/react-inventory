@@ -5,9 +5,9 @@ import Footer from './Footer'
 const PrivateLayout = ({ asesor, isLogged, logout }) => {
     return isLogged ? (
         <div>
-            <Header asesor={asesor} logout={logout} />
+            <Header asesor={asesor} />
             <Outlet />
-            <Footer />
+            <Footer logout={logout} />
         </div>
     ) : (
         <Navigate to="/login" />

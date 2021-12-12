@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 
-const Header = ({ asesor, logout }) => {
+const Header = ({ asesor }) => {
     let location = useLocation()
     const bodega = location.state?.bodega.nombre
     
@@ -13,7 +13,6 @@ const Header = ({ asesor, logout }) => {
                 </div>
             )}
             {bodega && <h1>{bodega}</h1>}
-            <button onClick={logout}>Cerrar sesión</button>
         </header>
     )
 }
