@@ -4,10 +4,6 @@ const mongoose = require('mongoose');
 const inventarioSchema = new mongoose.Schema({
     nombre: String,
     stock: [Array],
-    /* stock: {
-        type: Array,
-        default: undefined
-    } */
     asesor_id: ObjectId
 });
 

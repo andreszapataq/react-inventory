@@ -7,8 +7,8 @@ const Inventario = () => {
 
     return (
         <div>
-            {bodega.stock.map((item) => (
-                <Item key={item.codigo} item={item} />
+            {bodega.stock.map((item, index) => (
+                <Item key={index} item={item} />
             ))}
         </div>
     )

@@ -27,7 +27,7 @@ function App() {
 
     console.log(data.data)
 
-    setAsesor(data.data[0].nombre_asesor)
+    setAsesor(data.data[0].asesor)
     setData(data.data)
   }
 
