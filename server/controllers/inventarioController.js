@@ -43,6 +43,55 @@ exports.getTest = async (req, res, next) => {
         }
       }
     }, {
+      '$unwind': {
+        'path': '$stock'
+      }
+    }, {
+      '$lookup': {
+        'from': 'referencias', 
+        'let': {
+          'productoId': {
+            '$toObjectId': '$stock.producto'
+          }, 
+          'producto': '$stock'
+        }, 
+        'pipeline': [
+          {
+            '$match': {
+              '$expr': {
+                '$eq': [
+                  '$_id', '$$productoId'
+                ]
+              }
+            }
+          }, {
+            '$replaceRoot': {
+              'newRoot': {
+                '$mergeObjects': [
+                  '$$producto', '$$ROOT'
+                ]
+              }
+            }
+          }
+        ], 
+        'as': 'productos'
+      }
+    }, {
+      '$group': {
+        '_id': '$_id', 
+        'nombre': {
+          '$first': '$nombre'
+        }, 
+        'stock': {
+          '$push': {
+            '$first': '$productos'
+          }
+        }, 
+        'asesor': {
+          '$first': '$asesor'
+        }
+      }
+    }, {
       '$sort': {
         '_id': 1
       }

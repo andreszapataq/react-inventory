@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 const inventarioSchema = new mongoose.Schema({
     nombre: String,
-    stock: [Array],
-    asesor_id: ObjectId
+    asesor_id: ObjectId,
+    stock: [Array]
 });
 
 const Inventario = mongoose.model('Bodegas', inventarioSchema);
