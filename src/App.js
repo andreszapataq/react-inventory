@@ -7,6 +7,7 @@ import Login from "./components/Login"
 import PrivateLayout from "./layout/PrivateLayout"
 import Bodegas from "./components/Bodegas"
 import Inventario from "./components/Inventario"
+import Lotes from "./components/Lotes"
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -49,6 +50,7 @@ function App() {
         <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
+          <Route path="/lotes" element={<Lotes />} />
         </Route>
       </Routes>
     </div>

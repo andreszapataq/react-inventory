@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Item from "./Item"
 
 const Inventario = () => {
@@ -8,7 +8,9 @@ const Inventario = () => {
     return (
         <div>
             {bodega.stock.map((item, index) => (
-                <Item key={index} item={item} />
+                <Link to={"/lotes"}>
+                    <Item key={index} item={item} />
+                </Link>
             ))}
         </div>
     )
