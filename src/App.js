@@ -50,7 +50,7 @@ function App() {
         <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
-          <Route path="/lotes" element={<Lotes />} />
+          <Route path="/lotes/:id" element={<Lotes />} />
         </Route>
       </Routes>
     </div>

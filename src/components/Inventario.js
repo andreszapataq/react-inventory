@@ -8,9 +8,12 @@ const Inventario = () => {
     return (
         <div>
             {bodega.stock.map((item, index) => (
-                <Link to={"/lotes"}>
-                    <Item key={index} item={item} />
-                </Link>
+                <div key={index}>
+                    {console.log(item)}
+                    <Link to={`/lotes/${index}`}>
+                        <Item key={index} item={item} />
+                    </Link>
+                </div>
             ))}
         </div>
     )
