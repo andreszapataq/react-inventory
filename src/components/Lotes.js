@@ -1,9 +1,9 @@
-import { useLocation } from "react-router-dom"
+// import { useLocation } from "react-router-dom"
 
 const Lotes = () => {
-    let location = useLocation()
+    /* let location = useLocation()
     const item = location.state.item
-    console.log(location.state)
+    console.log(location.state) */
 
     return (
         <div>
