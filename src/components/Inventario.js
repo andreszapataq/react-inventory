@@ -4,6 +4,12 @@ import Item from "./Item"
 const Inventario = () => {
     let location = useLocation()
     const bodega = location.state.bodega
+    const stock = bodega.stock
+    console.log(stock)
+
+    /* const toFindDuplicates = stock => stock.filter((item, index) => stock.indexOf(item) !== index)
+    const duplicateElements = toFindDuplicates(stock);
+    console.log(duplicateElements); */
 
     return (
         <div>
