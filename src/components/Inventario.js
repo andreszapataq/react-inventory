@@ -6,29 +6,52 @@ const Inventario = () => {
     const bodega = location.state.bodega
     
     let stocx = bodega.stock
-    const productos = bodega.stock.map(value => value.nombre)
+    const productos = bodega.stock.map(value => value.codigo).sort()
     console.log(productos)
 
-    const unique = Array.from(new Set(productos))
-    console.log(stocx)
+    let unicos = []
+    let repetidos = []
+    let contador = 1
+
+    for(let i = 0; i < productos.length; i++){
+        if(productos[i + 1] === productos[i]){
+            // console.log(`Se repite el producto ${productos[i]}`)
+            contador++
+        }
+        else {
+            unicos.push(productos[i])
+            repetidos.push(contador)
+            contador = 1
+        }
+    }
+
+    console.log(unicos)
+    console.log(repetidos)
+
+    for(let j = 0; j < unicos.length; j++){
+        console.log(`Del producto ${unicos[j]} existen ${repetidos[j]} unidades`)
+    }
+
+    // const unique = Array.from(new Set(productos))
+    // console.log(stocx)
 
     let parsedItems = []
     for(let itex of stocx) {
-        console.log(itex)
-        if(parsedItems.includes(itex.nombre)) {
+        // console.log(itex)
+        if(parsedItems.includes(itex.codigo)) {
             // itex.cantidad = itex.cantidad + 1
-            console.log("NO ESTÁ")
+            // console.log("NO ESTÁ")
         }
         else {
             parsedItems.push(itex.codigo)
-            parsedItems.push(itex.nombre)
+            // parsedItems.push(itex.nombre)
             // itex.cantidad = 1
         }
     }
 
-    console.log(unique)
-    console.log(stocx)
-    console.log(parsedItems)
+    // console.log(unique)
+    // console.log(stocx)
+    console.log(parsedItems.sort())
 
     return (
         <div>
