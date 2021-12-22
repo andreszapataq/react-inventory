@@ -28,6 +28,12 @@ const Inventario = () => {
     console.log(unicos)
     console.log(repetidos)
 
+    var armixed = unicos.map(function (x, i) { 
+        return { categories: x, catid: repetidos[i] }
+    })
+
+    console.log(armixed)
+
     for(let j = 0; j < unicos.length; j++){
         console.log(`Del producto ${unicos[j]} existen ${repetidos[j]} unidades`)
     }
