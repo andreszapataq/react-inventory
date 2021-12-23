@@ -5,12 +5,18 @@ const Inventario = () => {
     let location = useLocation()
     const bodega = location.state.bodega
     
-    let stocx = bodega.stock
-    const productos = bodega.stock.map(value => value.codigo).sort()
+    let stocx = bodega.stock.sort()
+    console.log(stocx)
+
+    const productos = stocx.map(value => value.codigo)
     console.log(productos)
+
+    const nombreProductos = stocx.map(value => value.nombre)
+    console.log(nombreProductos)
 
     let unicos = []
     let repetidos = []
+    let list = []
     let contador = 1
 
     for(let i = 0; i < productos.length; i++){
@@ -21,18 +27,20 @@ const Inventario = () => {
         else {
             unicos.push(productos[i])
             repetidos.push(contador)
+            list.push(nombreProductos[i])
             contador = 1
         }
     }
 
     console.log(unicos)
     console.log(repetidos)
+    console.log(list)
 
-    var armixed = unicos.map(function (x, i) { 
-        return { categories: x, catid: repetidos[i] }
+    const newStock = unicos.map(function (x, i) { 
+        return { codigo: x, cantidad: repetidos[i], nombre: list[i] }
     })
 
-    console.log(armixed)
+    console.log(newStock)
 
     for(let j = 0; j < unicos.length; j++){
         console.log(`Del producto ${unicos[j]} existen ${repetidos[j]} unidades`)
@@ -61,7 +69,7 @@ const Inventario = () => {
 
     return (
         <div>
-            {bodega.stock.map((item, index) => (
+            {newStock.map((item, index) => (
                 <div key={index}>
                     <Link to={`/lotes/${index}`} state={{item}} >
                         <Item key={index} item={item} />
