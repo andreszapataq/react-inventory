@@ -5,7 +5,7 @@ const Inventario = () => {
     let location = useLocation()
     const bodega = location.state.bodega
     
-    let stocx = bodega.stock.sort()
+    let stocx = bodega.stock
     console.log(stocx)
 
     const productos = stocx.map(value => value.codigo)
@@ -37,7 +37,7 @@ const Inventario = () => {
     console.log(list)
 
     const newStock = unicos.map(function (x, i) { 
-        return { codigo: x, cantidad: repetidos[i], nombre: list[i] }
+        return { codigo: x, nombre: list[i], cantidad: repetidos[i] }
     })
 
     console.log(newStock)
