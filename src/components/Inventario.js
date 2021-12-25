@@ -4,40 +4,42 @@ import Item from "./Item"
 const Inventario = () => {
     let location = useLocation()
     const bodega = location.state.bodega
+
+    console.log(bodega)
     
-    let stocx = bodega.stock
-    console.log(stocx)
+    let stock = bodega.stock
+    console.log(stock)
 
-    const productos = stocx.map(value => value.codigo)
-    console.log(productos)
+    const codigoProductos = stock.map(value => value.codigo)
+    console.log(codigoProductos)
 
-    const nombreProductos = stocx.map(value => value.nombre)
+    const nombreProductos = stock.map(value => value.nombre)
     console.log(nombreProductos)
 
     let unicos = []
     let repetidos = []
-    let list = []
+    let nombres = []
     let contador = 1
 
-    for(let i = 0; i < productos.length; i++){
-        if(productos[i + 1] === productos[i]){
-            // console.log(`Se repite el producto ${productos[i]}`)
+    for(let i = 0; i < codigoProductos.length; i++){
+        if(codigoProductos[i + 1] === codigoProductos[i]){
+            // console.log(`Se repite el producto ${codigoProductos[i]}`)
             contador++
         }
         else {
-            unicos.push(productos[i])
+            unicos.push(codigoProductos[i])
             repetidos.push(contador)
-            list.push(nombreProductos[i])
+            nombres.push(nombreProductos[i])
             contador = 1
         }
     }
 
     console.log(unicos)
     console.log(repetidos)
-    console.log(list)
+    console.log(nombres)
 
     const newStock = unicos.map(function (x, i) { 
-        return { codigo: x, nombre: list[i], cantidad: repetidos[i] }
+        return { codigo: x, nombre: nombres[i], cantidad: repetidos[i] }
     })
 
     console.log(newStock)
@@ -47,24 +49,23 @@ const Inventario = () => {
     }
 
     // const unique = Array.from(new Set(productos))
-    // console.log(stocx)
 
     let parsedItems = []
-    for(let itex of stocx) {
-        // console.log(itex)
-        if(parsedItems.includes(itex.codigo)) {
-            // itex.cantidad = itex.cantidad + 1
+    
+    for(let item of stock) {
+        // console.log(item)
+        if(parsedItems.includes(item.codigo)) {
+            // item.cantidad = item.cantidad + 1
             // console.log("NO ESTÁ")
         }
         else {
-            parsedItems.push(itex.codigo)
-            // parsedItems.push(itex.nombre)
-            // itex.cantidad = 1
+            parsedItems.push(item.codigo)
+            // parsedItems.push(item.nombre)
+            // item.cantidad = 1
         }
     }
 
     // console.log(unique)
-    // console.log(stocx)
     console.log(parsedItems.sort())
 
     return (
