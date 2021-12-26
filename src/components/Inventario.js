@@ -50,6 +50,30 @@ const Inventario = () => {
 
     // const unique = Array.from(new Set(productos))
 
+    // const sampleArray = ['a', 'a', 'b', 'c']
+    const parsedStock = {}
+    const parsedStock2 = []
+
+    stock.forEach(function(x) { 
+        parsedStock[x.codigo] = (parsedStock[x.codigo] || 0) + 1
+        const found = stock.some(el => el.codigo === parsedStock2[x.codigo])
+        if (!found) parsedStock2.push({ codigo: parsedStock2[x.codigo] })
+        console.log(found)
+    })
+
+    // const arr = [{ id: 1, username: 'fred' }, { id: 2, username: 'bill' }, { id: 3, username: 'ted' }];
+
+    function add(arr, name) {
+        const { length } = arr;
+        const id = length + 1;
+        const found = arr.some(el => el.username === name);
+            if (!found) arr.push({ id, username: name });
+            return arr;
+    }
+    
+    console.log(parsedStock)
+    console.log(parsedStock2)
+
     let parsedItems = []
     let parsedNombres = []
     
@@ -69,7 +93,9 @@ const Inventario = () => {
 
     // console.log(unique)
     console.log(parsedItems.sort())
-    console.log(parsedNombres.sort((a, b) => (a.codigo > b.codigo) ? 1 : -1))
+    console.log(parsedNombres)
+    // console.log(parsedNombres.sort((a, b) => (a.mierda > b.mierda) ? 1 : -1))
+    console.log(parsedNombres.sort((a, b) => -1))
 
     const newStock2 = parsedItems.map(function (x, i) { 
         return { codigo: x, nombre: parsedNombres[i], cantidad: repetidos[i] }
