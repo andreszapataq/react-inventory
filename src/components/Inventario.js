@@ -51,6 +51,7 @@ const Inventario = () => {
     // const unique = Array.from(new Set(productos))
 
     let parsedItems = []
+    let parsedNombres = []
     
     for(let item of stock) {
         // console.log(item)
@@ -60,6 +61,7 @@ const Inventario = () => {
         }
         else {
             parsedItems.push(item.codigo)
+            parsedNombres.push(item.nombre)
             // parsedItems.push(item.nombre)
             // item.cantidad = 1
         }
@@ -67,10 +69,17 @@ const Inventario = () => {
 
     // console.log(unique)
     console.log(parsedItems.sort())
+    console.log(parsedNombres.sort((a, b) => (a.codigo > b.codigo) ? 1 : -1))
+
+    const newStock2 = parsedItems.map(function (x, i) { 
+        return { codigo: x, nombre: parsedNombres[i], cantidad: repetidos[i] }
+    })
+
+    console.log(newStock2)
 
     return (
         <div>
-            {newStock.map((item, index) => (
+            {newStock2.map((item, index) => (
                 <div key={index}>
                     <Link to={`/lotes/${index}`} state={{item}} >
                         <Item key={index} item={item} />
