@@ -4,6 +4,7 @@ const Header = ({ asesor }) => {
     let location = useLocation()
     const bodega = location.state?.bodega?.nombre
     const item = location.state?.item?.nombre
+    const codigo = location.state?.item?.codigo
 
     return (
         <header className='header'>
@@ -14,7 +15,12 @@ const Header = ({ asesor }) => {
                 </div>
             )}
             {bodega && <h1>{bodega}</h1>}
-            {item && <h1>{item}</h1>}
+            {item &&
+                <div>
+                    <h1>{item}</h1>
+                    <p>{codigo}</p>
+                </div> 
+            }
         </header>
     )
 }
