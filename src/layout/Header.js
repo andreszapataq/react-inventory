@@ -11,13 +11,13 @@ const Header = ({ asesor }) => {
             {location.pathname === "/" && (
                 <div>
                     <p>Hola</p>
-                    <h1>{asesor}</h1>
+                    <h1 className="text-asesor">{asesor}</h1>
                 </div>
             )}
-            {bodega && <h1>{bodega}</h1>}
+            {bodega && <h1 className="text-bodega">{bodega}</h1>}
             {item &&
                 <div>
-                    <h1>{item}</h1>
+                    <h1 className="text-producto">{item}</h1>
                     <p>{codigo}</p>
                 </div> 
             }
