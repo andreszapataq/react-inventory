@@ -14,11 +14,12 @@ const Header = ({ asesor }) => {
                     <h1 className="text-asesor">{asesor}</h1>
                 </div>
             )}
-            {bodega && <h1 className="text-bodega">{bodega}</h1>}
+            {bodega && location.pathname.includes('/inventario/') && <h1 className="text-bodega">{bodega}</h1>}
             {item &&
                 <div>
                     <h1 className="text-producto">{item}</h1>
                     <p>{codigo}</p>
+                    <p>{bodega}</p>
                 </div> 
             }
         </header>

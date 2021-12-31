@@ -39,7 +39,7 @@ const Inventario = () => {
     <div>
       {newStock.map((item, index) => (
           <div key={index}>
-            <Link to={`/lotes/${index}`} state={{ item }}>
+            <Link to={`/lotes/${index}`} state={{ item, bodega }}>
               <Item key={index} item={item} />
             </Link>
           </div>
