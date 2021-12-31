@@ -1,7 +1,4 @@
 const Item = ({ item }) => {
-    
-    console.log(item)
-    
     return (
         <div className='item'>
             <div>

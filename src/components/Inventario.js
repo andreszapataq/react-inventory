@@ -17,6 +17,7 @@ const Inventario = () => {
       newStock.forEach((newItem) => {
         if(newItem.codigo === item.codigo) {
           newItem.cantidad = newItem.cantidad + 1
+          newItem.lotes.push({lote: item.lote, fecha_vencimiento: item.fecha_vencimiento})
         }
       })
     } else {
@@ -24,6 +25,7 @@ const Inventario = () => {
         newStock.push({
             codigo: item.codigo,
             nombre: item.nombre,
+            lotes: [{lote: item.lote, fecha_vencimiento: item.fecha_vencimiento}],
             cantidad: 1
         })
         uniqueCodigos.push(item.codigo)
