@@ -57,6 +57,11 @@ a {
   margin: auto 30px;
 }
 
+.bodega-lotes {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
