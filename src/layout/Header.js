@@ -19,7 +19,7 @@ const Header = ({ asesor }) => {
                 <div>
                     <h1 className="text-producto">{item}</h1>
                     <p>{codigo}</p>
-                    <p className="bodega-lotes">{bodega}</p>
+                    <p className="text-bodega-lotes">Ahora en... {bodega}</p>
                 </div> 
             }
         </header>
