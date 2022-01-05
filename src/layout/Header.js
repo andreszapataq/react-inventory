@@ -16,11 +16,15 @@ const Header = ({ asesor }) => {
             )}
             {bodega && location.pathname.includes('/inventario/') && <h1 className="text-bodega">{bodega}</h1>}
             {item &&
-                <div>
-                    <h1 className="text-producto">{item}</h1>
-                    <p>{codigo}</p>
-                    <p className="text-bodega-lotes">Ahora en... {bodega}</p>
-                </div> 
+                <div className="header-lotes">
+                    <div>
+                        <h1 className="text-producto">{item}</h1>
+                        <p>{codigo}</p>
+                    </div>
+                    <div className="header-lotes-bodega">
+                        <p className="text-bodega-lotes">Ahora en... {bodega}</p>
+                    </div>
+                </div>
             }
         </header>
     )

@@ -53,13 +53,19 @@ a {
   line-height: 1.2;
 }
 
-.header h1, .header p {
-  margin: auto 30px;
+.header-lotes {
+  display: grid;
+  grid-template-rows: 1fr 75%;
+  row-gap: 12px;
 }
 
-.bodega-lotes {
-  display: flex;
-  justify-content: flex-end;
+.header-lotes-bodega {
+  justify-self: end;
+  align-self: end;
+}
+
+.header h1, .header p {
+  margin: auto 30px;
 }
 
 .item {
