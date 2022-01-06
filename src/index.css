@@ -43,8 +43,8 @@ a {
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   justify-content: center;
   margin-bottom: 20px;
   background: #1E509A;
