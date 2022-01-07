@@ -44,8 +44,7 @@ a {
 
 .header {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  justify-content: center;
+  grid-template-rows: 60% 1fr;
   margin-bottom: 20px;
   background: #1E509A;
   color: #fff;
@@ -53,19 +52,15 @@ a {
   line-height: 1.2;
 }
 
-.header-lotes {
-  display: grid;
-  grid-template-rows: 1fr 75%;
-  row-gap: 12px;
-}
-
-.header-lotes-bodega {
-  justify-self: end;
+.header-row-1 {
+  margin-left: 30px;
   align-self: end;
 }
 
-.header h1, .header p {
-  margin: auto 30px;
+.header-row-2 {
+  margin: 7px 10px;
+  align-self: end;
+  justify-self: end;
 }
 
 .item {
