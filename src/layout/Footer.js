@@ -1,7 +1,7 @@
 const Footer = ({ logout }) => {
     return (
         <footer>
-            <button onClick={logout}>Cerrar sesión</button>
+            <p onClick={logout} className="footer-logout">Cerrar sesión</p>
             <p>Powered by Ness Digital</p>
         </footer>
     )

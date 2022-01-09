@@ -10,7 +10,7 @@ const Login = ({ login }) => {
             <input type="text" />
             <input type="password" />
             <Link to="/" onClick={login}>
-                <button type="button" className="btn">Entrar</button>
+                <button type="button">Entrar</button>
             </Link>
         </div>
     )

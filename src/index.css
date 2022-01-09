@@ -30,22 +30,37 @@ a {
   flex-direction: column;
 }
 
+.login-brand {
+  margin-bottom: 20px;
+}
+
 .login-brand img {
   max-width: 100%;
   height: auto;
 }
 
-.btn {
-  color: #000;
+input[type="text"], input[type="password"] {
+  margin: 8px 0;
+  padding: 12px;
+}
+
+button[type="button"] {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  background-color: #1155CB;
+  color: #fff;
+  border: none;
+  text-decoration: none;
   cursor: pointer;
+}
+
+/* .btn {
   display: inline-block;
-  background: none;
-  border: 1px #000 solid;
   padding: 7px 16px;
   line-height: 1.2;
   text-align: center;
-  text-decoration: none;
-}
+} */
 
 .header {
   display: grid;
@@ -78,8 +93,8 @@ a {
 }
 
 .item h3 {
-  font-weight: 600;
   font-size: 1vw;
+  font-weight: 600;
 }
 
 .item p {
@@ -93,8 +108,8 @@ a {
 }
 
 .item-cantidad p {
-  font-weight: 600;
   font-size: 24px;
+  font-weight: 600;
 }
 
 .text-asesor {
@@ -118,6 +133,12 @@ a {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
+}
+
+.footer-logout {
+  font-size: 13px;
+  font-weight: 200;
+  cursor: pointer;
 }
