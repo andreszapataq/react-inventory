@@ -30,6 +30,11 @@ a {
   flex-direction: column;
 }
 
+.login-brand img {
+  max-width: 100%;
+  height: auto;
+}
+
 .btn {
   color: #000;
   cursor: pointer;

@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
+import logo from "../img/logo.png"
 
 const Login = ({ login }) => {
     return (
         <div className='login'>
             <div className="login-brand">
-                <a href="/">
-                    <img src="" alt="Logo" />
-                </a>
+                <img src={logo} alt="Logo" />
             </div>
             <input type="text" />
             <input type="password" />
