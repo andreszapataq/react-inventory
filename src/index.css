@@ -17,9 +17,9 @@ a {
 
 .App {
   max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
   min-height: 300px;
+  overflow: auto;
+  margin: 30px auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
@@ -42,25 +42,22 @@ a {
 input[type="text"], input[type="password"] {
   margin: 8px 0;
   padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
 button[type="button"] {
   width: 100%;
-  margin: 8px 0;
+  margin: 16px 0;
   padding: 12px;
   background-color: #1155CB;
   color: #fff;
   border: none;
   text-decoration: none;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
-
-/* .btn {
-  display: inline-block;
-  padding: 7px 16px;
-  line-height: 1.2;
-  text-align: center;
-} */
 
 .header {
   display: grid;
