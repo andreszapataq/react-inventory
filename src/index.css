@@ -120,7 +120,7 @@ button[type="button"] {
 }
 
 .text-producto {
-  font-size: calc(1vw + 1vh + 0.7vmin);
+  font-size: 1.2vw;
   font-weight: 600;
 }
 
