@@ -19,10 +19,15 @@ const Header = ({ asesor }) => {
                     <h1 className="text-bodega">{bodega}</h1>
                 </div>   
             }
-            {item && item.length < 30 &&
+            {item &&
                 <>
                     <div className="header-row-1">
-                        <h1 className="text-producto">{item}</h1>
+                        {item.length < 30 &&
+                            <h1 className="text-producto-1">{item}</h1>
+                        }
+                        {item.length > 30 &&
+                            <h1 className="text-producto-2">{item}</h1>
+                        }
                         <p>{codigo}</p>
                     </div>
                     <div className="header-row-2">

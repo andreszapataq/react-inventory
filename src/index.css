@@ -119,8 +119,13 @@ button[type="button"] {
   font-weight: 600;
 }
 
-.text-producto {
+.text-producto-1 {
   font-size: 22px;
+  font-weight: 600;
+}
+
+.text-producto-2 {
+  font-size: 16px;
   font-weight: 600;
 }
 
