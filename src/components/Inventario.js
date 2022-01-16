@@ -3,9 +3,9 @@ import Item from "./Item"
 
 const Inventario = () => {
   let location = useLocation()
-  const bodega = location.state.bodega;
+  const bodega = location.state?.bodega;
 
-  let stock = bodega.stock
+  let stock = bodega?.stock
   console.log(stock)
 
   const newStock = []
