@@ -1,39 +1,17 @@
-import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import Item from "./Item"
 
 const Inventario = () => {
   let location = useLocation()
-  // let bodega = location.state.bodega;
-  const [bodega, setBodega] = useState([])
-  const [newStock, setNewStock] = useState([])
+  const bodega = location.state?.bodega;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('http://localhost:5004/api/v1/inventario')
-      let datax = await res.json()
-      console.log(datax.data[location.pathname.split('/').pop()])
-      setBodega(datax.data[location.pathname.split('/').pop()])
-    }
-    
-    if(!location.state) {
-      fetchData()
-    }
-    else {
-      setBodega(location.state.bodega)
-    }
-  }, [location.state])
+  let stock = bodega?.stock
+  console.log(stock)
 
-  useEffect(() => {
-    if(bodega.stock) {
-      funcShit()
-    }
-  }, [bodega])
+  const newStock = []
+  const uniqueCodigos = []
 
-  const funcShit = () => {
-    const uniqueCodigos = []
-
-  bodega.stock.forEach((item) => {
+  stock?.forEach((item) => {
     // Si el codigo existe en el array, +1 la cantidad
     if(uniqueCodigos.includes(item.codigo)) {
       newStock.forEach((newItem) => {
@@ -56,7 +34,6 @@ const Inventario = () => {
 
   newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1))
   console.log(newStock)
-  }
 
   return (
     <div>
