@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const app = express();
 const inventarioRouter = require('./routes/inventarioRoutes');
@@ -7,7 +8,24 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res, next) => {
-    res.send('Hola Papi!')
+    res.json({
+        message: 'Hola Papi!'
+    });
+})
+
+app.post('/api/login', (req, res) => {
+    // Mock user
+    const user = {
+        id: 1,
+        username: 'admin',
+        email: 'admin@gmail.com'
+    }
+    
+    jwt.sign({user}, 'mierdakey', (err, token) => {
+        res.json({
+            token
+        })
+    })
 })
 
 // RUTAS
