@@ -7,5 +7,9 @@ exports.getLogged = async (req, res, next) => {
     const validPass = await (req.body.password === user.password)
     if(!validPass) return res.status(400).send('Password incorrecto')
 
-    res.send('Inicio de sesión correcto')
+    res.status(200).json({
+        status: "Epa!",
+        message: "Ok McKain",
+        data: "logged"
+    })
 }

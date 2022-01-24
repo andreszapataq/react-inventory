@@ -19,6 +19,11 @@ function App() {
     await fetchInventario()
     }
 
+    const getUser = async () => {
+      await fetchUser()
+    }
+
+    getUser()
     getInventario()
   }, [])
 
@@ -30,6 +35,13 @@ function App() {
 
     setAsesor(data.data[0].asesor)
     setData(data.data)
+  }
+
+  const fetchUser = async () => {
+    const res = await fetch('http://localhost:5004/api/v1/login')
+    const datos = await res.json()
+
+    console.log(datos.data)
   }
 
   const login = () => {
