@@ -14,24 +14,9 @@ app.get('/', (req, res, next) => {
     });
 })
 
-/* app.post('/api/login', (req, res) => {
-    // Mock user
-    const user = {
-        id: 1,
-        username: 'admin',
-        email: 'admin@gmail.com'
-    }
-    
-    jwt.sign({user}, 'mierdakey', (err, token) => {
-        res.json({
-            token
-        })
-    })
-}) */
-
 // RUTAS
 app.use('/api/v1/inventario', inventarioRouter)
 
-app.use('/api/v1/usuarios', usuarioRouter)
+app.use('/api/v1/login', usuarioRouter)
 
 module.exports = app;
