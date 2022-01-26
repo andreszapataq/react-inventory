@@ -16,14 +16,9 @@ function App() {
 
   useEffect(() => {
     const getInventario = async () => {
-    await fetchInventario()
+      await fetchInventario()
     }
 
-    const getUser = async () => {
-      await fetchUser()
-    }
-
-    getUser()
     getInventario()
   }, [])
 
@@ -37,16 +32,9 @@ function App() {
     setData(data.data)
   }
 
-  const fetchUser = async () => {
-    const res = await fetch('http://localhost:5004/api/v1/login')
-    const datos = await res.json()
-
-    console.log(datos.data)
-  }
-
   const login = () => {
-    setIslogged(true)
-    localStorage.setItem('logged', true)
+    /* setIslogged(true)
+    localStorage.setItem('logged', true) */
   }
 
   const logout = () => {
