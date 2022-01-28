@@ -3,6 +3,8 @@ import {
   Routes,
   Route
 } from "react-router-dom"
+import axios from "axios"
+
 import Login from "./components/Login"
 import PrivateLayout from "./layout/PrivateLayout"
 import Bodegas from "./components/Bodegas"
@@ -32,9 +34,22 @@ function App() {
     setData(data.data)
   }
 
-  const login = () => {
-    /* setIslogged(true)
-    localStorage.setItem('logged', true) */
+  const checkLogin = async (usuario, password) => {
+    await axios
+      .post('http://localhost:5004/api/v1/login', {
+        email: usuario,
+        password: password
+      })
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.log(error.response.data)
+      })
+    
+    // setIslogged(true)
+    // console.log(usuario, password)
+    // localStorage.setItem('logged', true)
   }
 
   const logout = () => {
@@ -45,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login login={login} />} />
+        <Route path="/login" element={<Login login={checkLogin} />} />
 
         <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />

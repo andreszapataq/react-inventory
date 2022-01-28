@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../img/logo.png"
 
-const Login = () => {
+const Login = (props) => {
     const [usuario, setUsuario] = useState('')
     const [password, setPassword] = useState('')
 
@@ -15,7 +15,10 @@ const Login = () => {
             <input type="text" id="user" value={usuario} onChange={e => setUsuario(e.target.value)}/>
             <label htmlFor="password">Contraseña</label>
             <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-            <Link to="/" onClick={() => {console.log(usuario, password)}}>
+            <Link to="/" onClick={(e) => {
+                e.preventDefault()
+                props.login(usuario, password)
+            }}>
                 <button type="button">Entrar</button>
             </Link>
         </div>
