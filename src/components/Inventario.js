@@ -6,7 +6,6 @@ const Inventario = () => {
   const bodega = location.state?.bodega;
 
   let stock = bodega?.stock
-  console.log(stock)
 
   const newStock = []
   const uniqueCodigos = []
@@ -33,7 +32,6 @@ const Inventario = () => {
   })
 
   newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1))
-  console.log(newStock)
 
   return (
     <div>

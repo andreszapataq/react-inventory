@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import {
   Routes,
-  Route
+  Route,
+  useNavigate
 } from "react-router-dom"
 import axios from "axios"
 
@@ -15,6 +16,7 @@ function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getInventario = async () => {
@@ -28,8 +30,6 @@ function App() {
     const res = await fetch('http://localhost:5004/api/v1/inventario')
     const data = await res.json()
 
-    console.log(data.data)
-
     setAsesor(data.data[0].asesor)
     setData(data.data)
   }
@@ -42,14 +42,15 @@ function App() {
       })
       .then(res => {
         console.log(res.data)
+        if(res.data.token) {
+          setIslogged(true)
+          localStorage.setItem('logged', true)
+          navigate('/')
+        }
       })
       .catch(error => {
         console.log(error.response.data)
       })
-    
-    // setIslogged(true)
-    // console.log(usuario, password)
-    // localStorage.setItem('logged', true)
   }
 
   const logout = () => {
@@ -60,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login login={checkLogin} />} />
+        <Route path="/login" element={<Login checkLogin={checkLogin} />} />
 
         <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />

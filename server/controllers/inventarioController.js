@@ -97,8 +97,6 @@ exports.getTest = async (req, res, next) => {
       }
     }
   ]);
-    
-  console.log(inventario);
 
   res.status(200).json({
     status: "Success",
