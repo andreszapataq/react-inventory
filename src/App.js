@@ -17,6 +17,7 @@ function App() {
   const [data, setData] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const navigate = useNavigate()
+  // const bcrypt = require('bcryptjs')
 
   useEffect(() => {
     const getInventario = async () => {
@@ -35,6 +36,9 @@ function App() {
   }
 
   const checkLogin = async (usuario, password) => {
+    /* const sugar = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password, sugar) */
+    
     await axios
       .post('http://localhost:5004/api/v1/login', {
         email: usuario,
