@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {
   Routes,
   Route,
@@ -17,18 +17,23 @@ function App() {
   const [data, setData] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const navigate = useNavigate()
+  let token = ''
   // const bcrypt = require('bcryptjs')
 
-  useEffect(() => {
+  /* useEffect(() => {
     const getInventario = async () => {
       await fetchInventario()
     }
 
     getInventario()
-  }, [])
+  }, []) */
 
   const fetchInventario = async () => {
-    const res = await fetch('http://localhost:5004/api/v1/inventario')
+    const res = await fetch('http://localhost:5004/api/v1/inventario', {
+      headers: {
+        authToken: token
+      }
+    })
     const data = await res.json()
 
     setAsesor(data.data[0].asesor)
@@ -46,9 +51,12 @@ function App() {
       })
       .then(res => {
         console.log(res.data)
-        if(res.data.token) {
+        token = res.data
+        if(token) {
           setIslogged(true)
           localStorage.setItem('logged', true)
+          localStorage.setItem('token', token)
+          fetchInventario()
           navigate('/')
         }
       })
@@ -60,6 +68,7 @@ function App() {
   const logout = () => {
     setIslogged(false)
     localStorage.setItem('logged', false)
+    localStorage.setItem('token', '')
   }
 
   return (
