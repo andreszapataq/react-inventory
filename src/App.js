@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Routes,
   Route,
@@ -16,22 +16,25 @@ function App() {
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
+  const [token, setToken] = useState(localStorage.getItem('token'))
+  
   const navigate = useNavigate()
-  let token = ''
+  
+  // let token = ''
   // const bcrypt = require('bcryptjs')
 
-  /* useEffect(() => {
+  useEffect(() => {
     const getInventario = async () => {
-      await fetchInventario()
+      await fetchInventario(token)
     }
 
-    getInventario()
-  }, []) */
+    if(token) getInventario()
+  }, [token])
 
-  const fetchInventario = async () => {
+  const fetchInventario = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/inventario', {
       headers: {
-        authToken: localStorage.getItem('token', token)
+        authToken: token
       }
     })
     const data = await res.json()
@@ -50,13 +53,13 @@ function App() {
         password: password
       })
       .then(res => {
-        console.log(res.data)
-        const token = res.data
-        if(token) {
+        let freshToken = res.data
+        if(freshToken) {
           setIslogged(true)
+          setToken(freshToken)
           localStorage.setItem('logged', true)
-          localStorage.setItem('token', token)
-          fetchInventario()
+          localStorage.setItem('token', freshToken)
+          fetchInventario(freshToken)
           navigate('/')
         }
       })

@@ -14,13 +14,6 @@ exports.getLogged = async (req, res, next) => {
         const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN)
 
         res.header('authToken', token).send(token)
-
-        /* return res.status(200).json({
-            status: "Epa!",
-            message: "Ok McKain",
-            isLogged: true,
-            token
-        }) */
     }
     
     return res.status(400).json({
