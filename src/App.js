@@ -31,7 +31,7 @@ function App() {
   const fetchInventario = async () => {
     const res = await fetch('http://localhost:5004/api/v1/inventario', {
       headers: {
-        authToken: token
+        authToken: localStorage.getItem('token', token)
       }
     })
     const data = await res.json()
@@ -51,7 +51,7 @@ function App() {
       })
       .then(res => {
         console.log(res.data)
-        token = res.data
+        const token = res.data
         if(token) {
           setIslogged(true)
           localStorage.setItem('logged', true)
