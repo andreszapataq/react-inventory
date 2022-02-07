@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas }) => {
-    console.log(bodegas)
-
     return (
         <div>
             {bodegas.map((bodega, index) => (

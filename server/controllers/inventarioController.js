@@ -1,11 +1,13 @@
 const { ObjectId } = require('bson');
 const Inventario = require('../models/inventarioModel');
 
-exports.getTest = async (req, res, next) => {
+exports.getInventario = async (req, res, next) => {
+  const userId = req.user._id
+
   const inventario = await Inventario.aggregate([
     {
       '$match': {
-        'asesor_id': ObjectId('61b3c99a8880fceda4d0353a')
+        'asesor_id': ObjectId(`${userId}`)
       }
     }, {
       '$lookup': {
