@@ -11,7 +11,7 @@ const Login = ({ checkLogin }) => {
                 <img src={logo} alt="Logo" />
             </div>
             <label htmlFor="user">Usuario</label>
-            <input type="text" id="user" value={usuario} onChange={e => setUsuario(e.target.value)}/>
+            <input type="text" id="user" value={usuario} onChange={e => setUsuario(e.target.value)} />
             <label htmlFor="password">Contraseña</label>
             <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
             <button type="button" onClick={() => {

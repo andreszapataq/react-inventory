@@ -80,6 +80,10 @@ button[type="button"] {
   justify-self: end;
 }
 
+/* .search-bar {
+
+} */
+
 .item {
   display: flex;
   justify-content: space-between;

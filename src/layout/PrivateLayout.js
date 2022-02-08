@@ -1,11 +1,13 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import Header from './Header'
+import SearchBar from '../components/SearchBar'
 import Footer from './Footer'
 
 const PrivateLayout = ({ asesor, isLogged, logout }) => {
     return isLogged ? (
         <div>
             <Header asesor={asesor} />
+            <SearchBar />
             <Outlet />
             <Footer logout={logout} />
         </div>
