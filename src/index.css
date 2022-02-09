@@ -39,14 +39,14 @@ a {
   height: auto;
 }
 
-input[type="text"], input[type="password"] {
+.input-user, .input-password {
   margin: 8px 0;
   padding: 12px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
 
-button[type="button"] {
+.button-login {
   width: 100%;
   margin: 16px 0;
   padding: 12px;
@@ -62,7 +62,7 @@ button[type="button"] {
 .header {
   display: grid;
   grid-template-rows: 60% 1fr;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background: #1E509A;
   color: #fff;
   height: 155px;
@@ -80,9 +80,17 @@ button[type="button"] {
   justify-self: end;
 }
 
-/* .search-bar {
+/* .search-wrapper {
 
 } */
+
+.input-search {
+  margin-bottom: 15px;
+  padding: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
 
 .item {
   display: flex;
