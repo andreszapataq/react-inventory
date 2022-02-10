@@ -7,7 +7,7 @@ const PrivateLayout = ({ asesor, isLogged, logout }) => {
     return isLogged ? (
         <div>
             <Header asesor={asesor} />
-            <SearchBar />
+            <SearchBar placeholder="Buscar..." />
             <Outlet />
             <Footer logout={logout} />
         </div>
