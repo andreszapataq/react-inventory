@@ -80,12 +80,12 @@ a {
   justify-self: end;
 }
 
-/* .search-wrapper {
-
-} */
+.search-inputs {
+  display: flex;
+}
 
 .input-search {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   padding: 8px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
@@ -95,6 +95,23 @@ a {
 .input-search::-webkit-input-placeholder {
   font-size: 15px;
 }
+
+.btn-clear {
+  cursor: pointer;
+}
+
+.data-result {
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid #767676;
+  background-color: #fff;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* .data-result::-webkit-scrollbar {
+  display: none;
+} */
 
 .item {
   display: flex;

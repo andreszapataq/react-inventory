@@ -3,11 +3,12 @@ import Header from './Header'
 import SearchBar from '../components/SearchBar'
 import Footer from './Footer'
 
-const PrivateLayout = ({ asesor, isLogged, logout }) => {
+const PrivateLayout = ({ asesor, data, isLogged, logout }) => {
+    console.log(data)
     return isLogged ? (
         <div>
             <Header asesor={asesor} />
-            <SearchBar placeholder="Buscar..." />
+            <SearchBar placeholder="Buscar..." data={data} />
             <Outlet />
             <Footer logout={logout} />
         </div>

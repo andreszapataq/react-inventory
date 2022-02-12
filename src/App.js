@@ -79,7 +79,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login checkLogin={checkLogin} />} />
 
-        <Route element={<PrivateLayout asesor={asesor} isLogged={isLogged} logout={logout} />}>
+        <Route element={<PrivateLayout asesor={asesor} data={data} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
