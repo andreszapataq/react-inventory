@@ -82,18 +82,34 @@ a {
 
 .search-inputs {
   display: flex;
+  align-items: center;
+  border: 1px solid #767676;
+  padding: 0px 10px;
+  margin-bottom: 5px;
 }
 
 .input-search {
-  margin-bottom: 5px;
   padding: 8px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   width: 100%;
+  border: none;
 }
 
 .input-search::-webkit-input-placeholder {
   font-size: 15px;
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+.search-icon {
+  color: #767676;
+}
+
+.close-icon {
+  color: red;
 }
 
 .btn-clear {

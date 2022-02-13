@@ -1,6 +1,7 @@
 import { useState } from "react"
-import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = ({ placeholder, data }) => {
   const [filteredData, setFilteredData] = useState([])
@@ -29,12 +30,14 @@ const SearchBar = ({ placeholder, data }) => {
     <div className="search-wrapper">
       <div className="search-inputs">
         <div className="search-icon">
-          <SearchIcon />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
         <input type="text" className="input-search" placeholder={placeholder} value={searchEntered} onChange={handleFilter} />
-        <div className="close-icon">
-          <CloseIcon className="btn-clear" onClick={clearInput} />
+        {searchEntered.length !==0 && (
+          <div className="close-icon">
+            <FontAwesomeIcon icon={faXmark} className="btn-clear" onClick={clearInput} />
         </div>
+        )}
       </div>
       {filteredData.length !== 0 && (
         <div className="data-result">
