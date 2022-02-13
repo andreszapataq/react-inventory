@@ -34,7 +34,7 @@ const Inventario = () => {
   newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1))
 
   return (
-    <div>
+    <div className="inventario-section">
       {newStock.map((item, index) => (
           <div key={index}>
             <Link to={`/lotes/${index}`} state={{ item, bodega }}>

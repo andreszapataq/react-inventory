@@ -6,7 +6,7 @@ import Footer from './Footer'
 const PrivateLayout = ({ asesor, data, isLogged, logout }) => {
     console.log(data)
     return isLogged ? (
-        <div>
+        <div className='private-layout'>
             <Header asesor={asesor} />
             <SearchBar placeholder="Buscar..." data={data} />
             <Outlet />

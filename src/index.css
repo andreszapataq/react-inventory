@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  overflow: auto;
 }
 
 a {
@@ -17,12 +19,17 @@ a {
 
 .App {
   max-width: 500px;
-  min-height: 300px;
-  overflow: auto;
-  margin: 30px auto;
+  min-height: 85vh;
+  margin: 25px auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+}
+
+.private-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
 }
 
 .login {
@@ -80,12 +87,15 @@ a {
   justify-self: end;
 }
 
+.search-wrapper {
+  margin-bottom: 20px;
+}
+
 .search-inputs {
   display: flex;
   align-items: center;
   border: 1px solid #767676;
   padding: 0px 10px;
-  margin-bottom: 5px;
 }
 
 .input-search {
@@ -128,6 +138,16 @@ a {
 /* .data-result::-webkit-scrollbar {
   display: none;
 } */
+
+.inventario-section {
+  height: 320px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.inventario-section::-webkit-scrollbar {
+  display: none;
+}
 
 .item {
   display: flex;
@@ -184,7 +204,7 @@ a {
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: auto;
   text-align: center;
 }
 
