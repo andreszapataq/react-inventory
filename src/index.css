@@ -143,6 +143,7 @@ a {
   height: 320px;
   overflow: hidden;
   overflow-y: auto;
+  margin-bottom: 20px;
 }
 
 .inventario-section::-webkit-scrollbar {
@@ -204,12 +205,23 @@ a {
 }
 
 footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin-top: auto;
   text-align: center;
 }
 
-.footer-logout {
-  font-size: 13px;
+.footer-logout-text {
+  font-size: 11px;
   font-weight: 200;
   cursor: pointer;
+}
+
+.footer-creator-text {
+  font-size: 13px;
+}
+
+.plus-icon, .home-icon {
+  color: #1E509A;
 }
