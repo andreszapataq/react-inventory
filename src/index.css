@@ -225,3 +225,15 @@ footer {
 .plus-icon, .home-icon {
   color: #1E509A;
 }
+
+@media(max-width: 768px) {
+  .inventario-section {
+    height: 430px;
+  }
+}
+
+@media(min-width: 1920px) {
+  .inventario-section {
+    height: 570px;
+  }
+}
