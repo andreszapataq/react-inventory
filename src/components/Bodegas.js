@@ -2,11 +2,16 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Bodega from "./Bodega"
 
-const Bodegas = ({ bodegas, placeholder }) => {
+const Bodegas = ({ bodegas }) => {
     const [searchTerm, setSearchTerm] = useState('')
+
+    const clearInput = () => {
+        setSearchTerm('')
+    }
     
     return (
         <div>
@@ -14,9 +19,14 @@ const Bodegas = ({ bodegas, placeholder }) => {
                 <div className="search-icon">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </div>
-                <input type="text" className="input-search" placeholder={placeholder} onChange={(e) => {
+                <input type="text" className="input-search" placeholder="Buscar..." value={searchTerm} onChange={(e) => {
                 setSearchTerm(e.target.value)
                 }} />
+                {searchTerm.length !== 0 && (
+                    <div className="close-icon">
+                        <FontAwesomeIcon icon={faXmark} className="btn-clear" onClick={clearInput} />
+                    </div>
+                )}
             </div>
             {bodegas.filter((val) => {
                 if(searchTerm === '') {

@@ -99,6 +99,10 @@ a {
   margin-bottom: 20px;
 }
 
+.search-inputs:focus-within {
+  border: 1px solid #1155CB;
+}
+
 .input-search {
   padding: 8px;
   font-family: 'Poppins', sans-serif;
@@ -135,10 +139,6 @@ a {
   overflow: hidden;
   overflow-y: auto;
 }
-
-/* .data-result::-webkit-scrollbar {
-  display: none;
-} */
 
 .inventario-section {
   height: 320px;
