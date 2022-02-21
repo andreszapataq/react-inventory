@@ -13,7 +13,7 @@ exports.getLogged = async (req, res, next) => {
     if(req.body.password === user.password) {
         const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN)
 
-        res.header('authToken', token).send(token)
+        return res.header('authToken', token).send(token)
     }
     
     return res.status(400).json({
