@@ -1,21 +1,20 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
+import SearchBar from './SearchBar'
 import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas }) => {
-    const [searchTerm, setSearchTerm] = useState('')
-
-    const clearInput = () => {
-        setSearchTerm('')
-    }
-    
     return (
         <div>
-            <div className="search-inputs">
+            <SearchBar />
+            {bodegas.map((bodega, index) => (
+                <div key={bodega._id}>
+                    <Link to={`/inventario/${index}`} state={{bodega}}>
+                        <Bodega bodega={bodega} />
+                    </Link>
+                </div>
+            ))}
+            {/* <div className="search-inputs">
                 <div className="search-icon">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </div>
@@ -34,7 +33,7 @@ const Bodegas = ({ bodegas }) => {
                         <Bodega bodega={bodega} />
                     </Link>
                 </div>
-            ))}
+            ))} */}
         </div>
     )
 }
