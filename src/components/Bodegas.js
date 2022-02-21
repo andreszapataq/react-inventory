@@ -28,14 +28,7 @@ const Bodegas = ({ bodegas }) => {
                     </div>
                 )}
             </div>
-            {bodegas.filter((val) => {
-                if(searchTerm === '') {
-                    return val
-                }
-                else if(val.nombre.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return val
-                }
-            }).map((bodega, index) => (
+            {bodegas.filter((element) => element.nombre.toLowerCase().includes(searchTerm.toLowerCase())).map((bodega, index) => (
                 <div key={bodega._id}>
                     <Link to={`/inventario/${index}`} state={{bodega}}>
                         <Bodega bodega={bodega} />
