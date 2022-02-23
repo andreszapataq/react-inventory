@@ -5,32 +5,20 @@ import SearchBar from './SearchBar'
 import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas }) => {
-    const [input, setInput] = useState('')
-    const [dataDefault, setDataDefault] = useState([])
-    const [searchTerm, setSearchTerm] = useState([])
+    const [filteredBodegas, setFilteredBodegas] = useState(bodegas)
 
-    console.log(dataDefault)
-    console.log(searchTerm)
-
-    const getData = (bodegas) => {
-        setDataDefault(bodegas)
-        setSearchTerm(bodegas)
-    }
-    
-    const updateInput = async (input) => {
-        const filtered = searchTerm.filter(element => {
-            return element.nombre.toLowerCase().includes(input.toLowerCase())
-        })
-        setInput(input)
-        setSearchTerm(filtered)
+    const handleChange = (filteredData) => {
+        setFilteredBodegas(filteredData)
     }
 
-    useEffect(() => {getData()}, [bodegas])
+    useEffect(() => {
+        setFilteredBodegas(bodegas)
+    }, [bodegas])
     
     return (
         <div>
-            <SearchBar input={input} onChange={updateInput} />
-            {searchTerm.map((bodega, index) => (
+            <SearchBar data={bodegas} handleChange={handleChange} />
+            {filteredBodegas.map((bodega, index) => (
                 <div key={bodega._id}>
                     <Link to={`/inventario/${index}`} state={{bodega}}>
                         <Bodega bodega={bodega} />

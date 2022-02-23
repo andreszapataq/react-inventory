@@ -35,6 +35,7 @@ const Inventario = () => {
 
   return (
     <div className="inventario-section">
+      {/* <SearchBar data={bodegas} handleChange={handleChange} /> */}
       {newStock.map((item, index) => (
           <div key={index}>
             <Link to={`/lotes/${index}`} state={{ item, bodega }}>

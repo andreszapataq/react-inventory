@@ -1,14 +1,23 @@
-// import { useState } from "react"
+import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const SearchBar = ({ input:searchTerm, onChange:setSearchTerm }) => {
-    // const [searchTerm, setSearchTerm] = useState('')
+const SearchBar = ({ data, handleChange }) => {
+    const [searchTerm, setSearchTerm] = useState('')
 
-    /* const clearInput = () => {
+    const clearInput = () => {
         setSearchTerm('')
-    } */
+    }
+
+    const filtered = () => {        
+        const filteredData = data.filter((element) => element.nombre.toLowerCase().includes(searchTerm.toLowerCase()))
+        handleChange(filteredData)
+    }
+
+    useEffect(() => {
+        filtered()
+    }, [searchTerm])
   
     return (
         <div>
@@ -21,8 +30,7 @@ const SearchBar = ({ input:searchTerm, onChange:setSearchTerm }) => {
                 }} />
                 {searchTerm.length !== 0 && (
                     <div className="close-icon">
-                        <FontAwesomeIcon icon={faXmark} className="btn-clear" />
-                        {/* <FontAwesomeIcon icon={faXmark} className="btn-clear" onClick={clearInput} /> */}
+                        <FontAwesomeIcon icon={faXmark} className="btn-clear" onClick={clearInput} />
                     </div>
                 )}
             </div>
