@@ -4,7 +4,6 @@ import Header from './Header'
 import Footer from './Footer'
 
 const PrivateLayout = ({ asesor, data, isLogged, logout }) => {
-    console.log(data) // ELIMINAR
     return isLogged ? (
         <div className='private-layout'>
             <Header asesor={asesor} />

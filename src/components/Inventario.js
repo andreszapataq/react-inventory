@@ -18,8 +18,8 @@ const Inventario = () => {
   }
 
   useEffect(() => {
-      setFilteredBodegas(stock)
-  }, [stock])
+      setFilteredBodegas(stox)
+  }, [stox])
 
   useEffect(() => {
     const newStock = []
