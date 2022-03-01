@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --app-margin-tb: 25px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +12,8 @@
 }
 
 body {
-  height: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
 a {
@@ -19,8 +23,8 @@ a {
 
 .App {
   max-width: 500px;
-  min-height: 85vh;
-  margin: 25px auto;
+  height: calc(100vh - (var(--app-margin-tb) * 2));
+  margin: var(--app-margin-tb) auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
@@ -29,7 +33,7 @@ a {
 .private-layout {
   display: flex;
   flex-direction: column;
-  min-height: inherit;
+  height: 100%;
 }
 
 .login {
@@ -131,14 +135,14 @@ a {
   cursor: pointer;
 }
 
-.data-result {
+/* .data-result {
   min-height: 100px;
   padding: 8px;
   border: 1px solid #767676;
   background-color: #fff;
   overflow: hidden;
   overflow-y: auto;
-}
+} */
 
 .inventario-section {
   height: 320px;
@@ -227,7 +231,7 @@ footer {
   color: #1E509A;
 }
 
-@media(max-width: 768px) {
+/* @media(max-width: 768px) {
   .inventario-section {
     height: 430px;
   }
@@ -237,4 +241,4 @@ footer {
   .inventario-section {
     height: 570px;
   }
-}
+} */
