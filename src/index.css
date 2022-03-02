@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --app-margin-tb: 25px;
+  --app-tb-margin: 25px;
+  --header-height: 155px;
+  --footer-height: 40px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -23,17 +25,17 @@ a {
 
 .App {
   max-width: 500px;
-  height: calc(100vh - (var(--app-margin-tb) * 2));
-  margin: var(--app-margin-tb) auto;
+  height: calc(100vh - (var(--app-tb-margin) * 2));
+  margin: var(--app-tb-margin) auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
 }
 
 .private-layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: grid;
+  grid-template-rows: 155px 1fr 40px;
+  row-gap: 20px;
 }
 
 .login {
@@ -73,7 +75,7 @@ a {
 .header {
   display: grid;
   grid-template-rows: 60% 1fr;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   background: #1E509A;
   color: #fff;
   height: 155px;
@@ -91,9 +93,9 @@ a {
   justify-self: end;
 }
 
-.search-wrapper {
+/* .search-wrapper {
   margin-bottom: 20px;
-}
+} */
 
 .search-inputs {
   display: flex;
@@ -144,16 +146,16 @@ a {
   overflow-y: auto;
 } */
 
-.inventario-section {
+/* .inventario-section {
   height: 320px;
   overflow: hidden;
   overflow-y: auto;
   margin-bottom: 20px;
-}
+} */
 
-.inventario-section::-webkit-scrollbar {
+/* .inventario-section::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .item {
   display: flex;
@@ -165,7 +167,7 @@ a {
 }
 
 .item h3 {
-  font-size: 1vw;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -213,7 +215,6 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: auto;
   text-align: center;
 }
 
