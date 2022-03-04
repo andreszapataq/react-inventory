@@ -52,7 +52,7 @@ const Inventario = () => {
   }, [])
 
   return (
-    <div className="inventario-section">
+    <div className="list-section">
       <SearchBar data={stock} handleChange={handleChange} />
       {filteredBodegas.map((item, index) => (
           <div key={index}>

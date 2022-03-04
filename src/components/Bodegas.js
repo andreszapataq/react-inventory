@@ -16,7 +16,7 @@ const Bodegas = ({ bodegas }) => {
     }, [bodegas])
     
     return (
-        <div>
+        <div className="list-section">
             <SearchBar data={bodegas} handleChange={handleChange} />
             {filteredBodegas.map((bodega, index) => (
                 <div key={bodega._id}>

@@ -5,7 +5,7 @@ const Lotes = () => {
     const item = location.state?.item
     
     return (
-        <div>
+        <div className="list-section">
             {item?.lotes.map((lotes, index) => (
                 <div className='item' key={index}>
                     <h3>{lotes.lote}</h3>
