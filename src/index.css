@@ -150,10 +150,10 @@ a {
   cursor: pointer;
 }
 
-.item h3 {
+/* .item h3 {
   font-size: 16px;
   font-weight: 600;
-}
+} */
 
 .item p {
   font-size: 12px;
@@ -180,19 +180,42 @@ a {
   font-weight: 600;
 }
 
-.text-producto-xl {
+.text-header-xl {
   font-size: 22px;
   font-weight: 600;
 }
 
-.text-producto-md {
+.text-header-md {
   font-size: 16px;
   font-weight: 600;
 }
 
-.text-bodega-lotes {
+.text-header-bodega {
   font-size: 12px;
   font-weight: 300;
+}
+
+.text-list-section-xl {
+  font-size: 24px;
+}
+
+.text-list-section-md {
+  font-size: 18px;
+}
+
+.text-item-xl {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text-item-md {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.text-lote-xl {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 footer {
@@ -219,6 +242,18 @@ footer {
 @media(max-width: 768px) {
   .private-layout {
     grid-template-rows: 155px 548px 40px;
+  }
+
+  .text-item-md {
+    font-size: 0.7rem;
+  }
+
+  .text-header-xl {
+    font-size: 18px;
+  }
+
+  .text-header-md {
+    font-size: 12px;
   }
 }
 

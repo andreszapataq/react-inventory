@@ -8,7 +8,7 @@ const Lotes = () => {
         <div className="list-section">
             {item?.lotes.map((lotes, index) => (
                 <div className='item' key={index}>
-                    <h3>{lotes.lote}</h3>
+                    <h3 className="text-lote-xl">{lotes.lote}</h3>
                     <p>{lotes.fecha_vencimiento}</p>
                 </div>
             ))}
