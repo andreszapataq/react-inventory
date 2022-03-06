@@ -17,7 +17,7 @@ const Bodegas = ({ bodegas }) => {
     
     return (
         <div className="list-section">
-            <SearchBar data={bodegas} handleChange={handleChange} />
+            <SearchBar data={bodegas} handleChange={handleChange} filterBy='nombre' />
             {filteredBodegas.map((bodega, index) => (
                 <div key={bodega._id}>
                     <Link to={`/inventario/${index}`} state={{bodega}}>

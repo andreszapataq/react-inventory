@@ -53,7 +53,7 @@ const Inventario = () => {
 
   return (
     <div className="list-section">
-      <SearchBar data={stock} handleChange={handleChange} />
+      <SearchBar data={stock} handleChange={handleChange} filterBy='codigo' />
       {filteredBodegas.map((item, index) => (
           <div key={index}>
             <Link to={`/lotes/${index}`} state={{ item, bodega }}>

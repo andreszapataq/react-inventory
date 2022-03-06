@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const SearchBar = ({ data, handleChange }) => {
+const SearchBar = ({ data, handleChange, filterBy }) => {
     const [searchTerm, setSearchTerm] = useState('')
 
     const clearInput = () => {
@@ -11,7 +11,7 @@ const SearchBar = ({ data, handleChange }) => {
     }
 
     const filtered = () => {        
-        const filteredData = data.filter((element) => element.nombre.toLowerCase().includes(searchTerm.toLowerCase()))
+        const filteredData = data.filter((element) => element[filterBy].toLowerCase().includes(searchTerm.toLowerCase()))
         handleChange(filteredData)
     }
 
