@@ -7,7 +7,9 @@ const Footer = ({ logout }) => {
     return (
         <footer>
             <div className="plus-icon">
-                <FontAwesomeIcon icon={faCirclePlus} className="fa-2x" />
+                <Link to="/crear-bodega">
+                    <FontAwesomeIcon icon={faCirclePlus} className="fa-2x" />
+                </Link>
             </div>
             <div className="footer-copy">
                 <p onClick={logout} className="footer-logout-text">Cerrar sesión</p>
