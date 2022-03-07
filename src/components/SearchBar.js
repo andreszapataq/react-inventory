@@ -10,6 +10,8 @@ const SearchBar = ({ data, handleChange, filterBy }) => {
         setSearchTerm('')
     }
 
+    console.log(data)
+
     const filtered = () => {        
         const filteredData = data.filter((element) => element[filterBy].toLowerCase().includes(searchTerm.toLowerCase()))
         handleChange(filteredData)
