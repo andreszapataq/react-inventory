@@ -6,15 +6,15 @@ import SearchBar from "./SearchBar";
 const Lotes = () => {
   let location = useLocation();
   const item = location.state?.item;
-  const [filteredBodegas, setFilteredBodegas] = useState([]);
+  const [filteredBodegas, setFilteredBodegas] = useState([])
 
   useEffect(() => {
-    setFilteredBodegas(item.lotes); // TODO: Esta es la solucion
+    setFilteredBodegas(item.lotes)
   }, [item]);
 
   const handleChange = (filteredData) => {
-    setFilteredBodegas(filteredData);
-  };
+    setFilteredBodegas(filteredData)
+  }
 
   return (
     <div className="list-section">

@@ -5,19 +5,19 @@ import Item from "./Item";
 import SearchBar from "./SearchBar";
 
 const Inventario = () => {
-  let location = useLocation();
-  const bodega = location.state?.bodega;
-  let stock = bodega?.stock;
+  let location = useLocation()
+  const bodega = location.state?.bodega
+  let stock = bodega?.stock
 
-  const [filteredBodegas, setFilteredBodegas] = useState([]);
+  const [filteredBodegas, setFilteredBodegas] = useState([])
 
   const handleChange = (filteredData) => {
-    parseStock(filteredData); // TODO: El resultado habia que parsearlo otra vez
+    parseStock(filteredData)
   };
 
   useEffect(() => {
-    parseStock(stock);
-  }, [stock]);
+    parseStock(stock)
+  }, [stock])
 
   const parseStock = (stockArg) => {
     const newStock = [];
