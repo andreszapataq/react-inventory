@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Item from "./Item";
 
 import SearchBar from "./SearchBar";
+import Item from "./Item";
 
 const Inventario = () => {
   let location = useLocation()
@@ -59,7 +59,7 @@ const Inventario = () => {
       {filteredBodegas.map((item, index) => (
         <div key={index}>
           <Link to={`/lotes/${index}`} state={{ item, bodega }}>
-            <Item key={index} item={item} />
+            <Item item={item} />
           </Link>
         </div>
       ))}

@@ -9,9 +9,10 @@ import axios from "axios"
 import Login from "./components/Login"
 import PrivateLayout from "./layout/PrivateLayout"
 import Bodegas from "./components/Bodegas"
+import CrearBodega from "./components/CrearBodega"
 import Inventario from "./components/Inventario"
 import Lotes from "./components/Lotes"
-import CrearBodega from "./components/CrearBodega"
+import Lote from "./components/Lote"
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -82,9 +83,10 @@ function App() {
 
         <Route element={<PrivateLayout asesor={asesor} data={data} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
+          <Route path="/crear-bodega" element={<CrearBodega />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
-          <Route path="/crear-bodega" element={<CrearBodega />} />
+          <Route path="/lote/:id" element={<Lote />} />
         </Route>
       </Routes>
     </div>

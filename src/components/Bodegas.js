@@ -20,7 +20,7 @@ const Bodegas = ({ bodegas }) => {
             <SearchBar data={bodegas} handleChange={handleChange} filterBy='nombre' />
             {filteredBodegas.map((bodega, index) => (
                 <div key={bodega._id}>
-                    <Link to={`/inventario/${index}`} state={{bodega}}>
+                    <Link to={`/inventario/${index}`} state={{ bodega }}>
                         <Bodega bodega={bodega} />
                     </Link>
                 </div>

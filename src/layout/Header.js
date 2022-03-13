@@ -5,6 +5,9 @@ const Header = ({ asesor }) => {
     const bodega = location.state?.bodega?.nombre
     const item = location.state?.item?.nombre
     const codigo = location.state?.item?.codigo
+    const lote = location.state
+
+    console.log(lote)
 
     return (
         <header className='header'>

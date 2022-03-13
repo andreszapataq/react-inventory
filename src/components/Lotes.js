@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
+import Lote from "./Lote";
 
 const Lotes = () => {
   let location = useLocation();
@@ -24,9 +25,11 @@ const Lotes = () => {
         filterBy="lote"
       />
       {filteredBodegas?.map((el, index) => (
-        <div className="item" key={index}>
-          <h3 className="text-lote-xl">{el.lote}</h3>
-          <p>{el.fecha_vencimiento}</p>
+        <div key={index}>
+          {console.log(el)}
+          <Link to={`/lote/${index}`} state={{ el }}>
+            <Lote el={el} />
+          </Link>
         </div>
       ))}
     </div>

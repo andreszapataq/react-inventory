@@ -1,6 +1,11 @@
-const Lote = () => {
+const Lote = ({ el }) => {
+  console.log(el)
+  
   return (
-    <div>Lote</div>
+    <div className="item">
+      <h3 className="text-lote-xl">{el.lote}</h3>
+      <p>{el.fecha_vencimiento}</p>
+    </div>
   )
 }
 
