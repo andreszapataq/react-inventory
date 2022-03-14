@@ -5,7 +5,7 @@ const Header = ({ asesor }) => {
     const bodega = location.state?.bodega?.nombre
     const item = location.state?.item?.nombre
     const codigo = location.state?.item?.codigo
-    const lote = location.state
+    const lote = location.state?.el
 
     console.log(lote)
 
@@ -27,6 +27,17 @@ const Header = ({ asesor }) => {
                     <div className="header-row-1">
                         <h1 className={item.length < 30 ? "text-header-xl" : "text-header-md"}>{item}</h1>
                         <p>{codigo}</p>
+                    </div>
+                    <div className="header-row-2">
+                        <p className="text-header-bodega">Ahora en... {bodega}</p>
+                    </div>
+                </>
+            }
+            {lote &&
+                <>
+                    <div className="header-row-1">
+                        <h1 className="text-header-xl">{lote.lote}</h1>
+                        <p>{lote.fecha_vencimiento}</p>
                     </div>
                     <div className="header-row-2">
                         <p className="text-header-bodega">Ahora en... {bodega}</p>

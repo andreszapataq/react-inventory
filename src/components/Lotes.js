@@ -26,8 +26,7 @@ const Lotes = () => {
       />
       {filteredBodegas?.map((el, index) => (
         <div key={index}>
-          {console.log(el)}
-          <Link to={`/lote/${index}`} state={{ el }}>
+          <Link to={`/lotepage/${index}`} state={{ el }}>
             <Lote el={el} />
           </Link>
         </div>

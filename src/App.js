@@ -12,7 +12,7 @@ import Bodegas from "./components/Bodegas"
 import CrearBodega from "./components/CrearBodega"
 import Inventario from "./components/Inventario"
 import Lotes from "./components/Lotes"
-import Lote from "./components/Lote"
+import LotePage from "./components/LotePage"
 
 function App() {
   const [asesor, setAsesor] = useState([])
@@ -86,7 +86,7 @@ function App() {
           <Route path="/crear-bodega" element={<CrearBodega />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
-          <Route path="/lote/:id" element={<Lote />} />
+          <Route path="/lotepage/:id" element={<LotePage />} />
         </Route>
       </Routes>
     </div>

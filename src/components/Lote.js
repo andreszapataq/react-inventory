@@ -1,5 +1,4 @@
 const Lote = ({ el }) => {
-  console.log(el)
   
   return (
     <div className="item">
