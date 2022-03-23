@@ -1,6 +1,6 @@
 const CrearBodega = () => {
   return (
-    <div>Crear Bodega</div>
+    <div>CrearBodega</div>
   )
 }
 
