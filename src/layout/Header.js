@@ -39,9 +39,6 @@ const Header = ({ asesor }) => {
                         <h1 className="text-header-xl">{lote.lote}</h1>
                         <p>{lote.fecha_vencimiento}</p>
                     </div>
-                    <div className="header-row-2">
-                        <p className="text-header-bodega">Ahora en... {bodega}</p>
-                    </div>
                 </>
             }
         </header>
