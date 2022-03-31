@@ -7,7 +7,7 @@ const Footer = ({ logout }) => {
     return (
         <footer>
             <div className="plus-icon">
-                <Link to="/crear-bodega">
+                <Link to="/crear-bodega" state={{ title: "Crear Bodega" }}>
                     <FontAwesomeIcon icon={faCirclePlus} className="fa-2x" />
                 </Link>
             </div>

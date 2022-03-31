@@ -6,8 +6,9 @@ const Header = ({ asesor }) => {
     const item = location.state?.item?.nombre
     const codigo = location.state?.item?.codigo
     const lote = location.state?.el
+    const crearBodega = location.state
 
-    console.log(lote)
+    console.log(crearBodega)
 
     return (
         <header className='header'>
@@ -40,6 +41,11 @@ const Header = ({ asesor }) => {
                         <p>{lote.fecha_vencimiento}</p>
                     </div>
                 </>
+            }
+            {crearBodega &&
+                <div className="header-row-1">
+                    <h1>{crearBodega.title}</h1>
+                </div>
             }
         </header>
     )
