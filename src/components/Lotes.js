@@ -5,8 +5,9 @@ import SearchBar from "./SearchBar";
 import Lote from "./Lote";
 
 const Lotes = () => {
-  let location = useLocation();
-  const item = location.state?.item;
+  let location = useLocation()
+  const item = location.state?.item
+  const bodega = location.state?.bodega
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Lotes = () => {
       />
       {filteredBodegas?.map((el, index) => (
         <div key={index}>
-          <Link to={`/lotepage/${index}`} state={{ el }}>
+          <Link to={`/lotepage/${index}`} state={{ el, bodega }}>
             <Lote el={el} />
           </Link>
         </div>

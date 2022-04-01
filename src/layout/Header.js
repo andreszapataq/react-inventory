@@ -8,8 +8,6 @@ const Header = ({ asesor }) => {
     const lote = location.state?.el
     const crearBodega = location.state
 
-    console.log(crearBodega)
-
     return (
         <header className='header'>
             {location.pathname === "/" && (
@@ -44,7 +42,7 @@ const Header = ({ asesor }) => {
             }
             {crearBodega &&
                 <div className="header-row-1">
-                    <h1>{crearBodega.title}</h1>
+                    <h1 className="text-bodega">{crearBodega.title}</h1>
                 </div>
             }
         </header>

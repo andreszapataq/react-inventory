@@ -1,8 +1,13 @@
+import { useLocation } from "react-router-dom"
+
 const LotePage = () => {
+  let location = useLocation()
+  const bodega = location.state?.bodega?.nombre
+
   return (
     <div>
       <h3>Bodega actual</h3>
-      <p>Bodega</p>
+      <p>{bodega}</p>
       <h3>Trasladar a...</h3>
       <select name="bodega" id="bodega">
         <option value="bodega-1">Bodega 1</option>
