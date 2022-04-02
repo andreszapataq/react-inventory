@@ -14,6 +14,8 @@ const LotePage = () => {
         <option value="bodega-2">Bodega 2</option>
         <option value="bodega-3">Bodega 3</option>
       </select>
+      <h3>Notas</h3>
+      <textarea name="notas" id="notas" cols="50" rows="4"></textarea>
     </div>
   )
 }
