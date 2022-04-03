@@ -5,7 +5,7 @@ const LotePage = () => {
   const bodega = location.state?.bodega?.nombre
 
   return (
-    <div>
+    <div className="LotePage">
       <h3>Bodega actual</h3>
       <p>{bodega}</p>
       <h3>Trasladar a...</h3>
