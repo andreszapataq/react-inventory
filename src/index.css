@@ -38,6 +38,11 @@ a {
   row-gap: 20px;
 }
 
+.LotePage {
+  display: flex;
+  flex-direction: column;
+}
+
 .login {
   display: flex;
   flex-direction: column;
