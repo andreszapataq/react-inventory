@@ -41,6 +41,17 @@ a {
 .LotePage {
   display: flex;
   flex-direction: column;
+  row-gap: 20px;
+}
+
+.lp-selection select {
+  width: 70%;
+  height: 27px;
+}
+
+.lp-notes textarea {
+  width: 100%;
+  padding: 7px;
 }
 
 .login {

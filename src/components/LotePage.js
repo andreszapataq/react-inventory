@@ -22,6 +22,10 @@ const LotePage = () => {
         <h3>Notas</h3>
         <textarea name="notas" id="notas" cols="50" rows="4"></textarea>
       </div>
+      <div className="lp-buttons">
+        <button>Cancelar</button>
+        <button>Guardar</button>
+      </div>
     </div>
   )
 }
