@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .App {
   max-width: 500px;
   height: calc(100vh - (var(--app-tb-margin) * 2));
@@ -52,6 +56,12 @@ a {
 .lp-notes textarea {
   width: 100%;
   padding: 7px;
+}
+
+.lp-buttons {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 20px;
 }
 
 .login {
