@@ -23,10 +23,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
-
 .App {
   max-width: 500px;
   height: calc(100vh - (var(--app-tb-margin) * 2));
@@ -61,7 +57,32 @@ button {
 .lp-buttons {
   display: flex;
   justify-content: flex-end;
-  column-gap: 20px;
+  column-gap: 15px;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px #000 solid;
+  text-decoration: none;
+  width: 90px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.btn-grey {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #555;
+}
+
+.btn-blue {
+  background-color: #1E509A;
+  border-color: #1E509A;
+  color: #fff;
 }
 
 .login {
