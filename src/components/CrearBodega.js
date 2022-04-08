@@ -1,6 +1,9 @@
 const CrearBodega = () => {
   return (
-    <div>CrearBodega</div>
+    <div>
+      <h3>Nombre de bodega</h3>
+      <input type="text" />
+    </div>
   )
 }
 
