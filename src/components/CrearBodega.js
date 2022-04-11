@@ -8,8 +8,10 @@ const CrearBodega = () => {
         <option value="daniel-oliveros">Daniel Oliveros</option>
         <option value="vive-solutions">Vive Solutions</option>
       </select>
-      <button className="btn btn-grey">Cancelar</button>
-      <button className="btn btn-blue">Guardar</button>
+      <div className="cb-buttons">
+        <button className="btn btn-grey">Cancelar</button>
+        <button className="btn btn-blue">Guardar</button>
+      </div>
     </div>
   )
 }
