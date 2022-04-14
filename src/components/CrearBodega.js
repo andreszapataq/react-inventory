@@ -1,6 +1,6 @@
 const CrearBodega = () => {
   return (
-    <div>
+    <div className="CrearBodega">
       <h3>Nombre de bodega</h3>
       <input type="text" />
       <h3>Asesor</h3>
