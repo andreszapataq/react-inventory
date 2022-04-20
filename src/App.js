@@ -86,7 +86,7 @@ function App() {
           <Route path="/crear-bodega" element={<CrearBodega />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
-          <Route path="/lotepage/:id" element={<LotePage />} />
+          <Route path="/lotepage/:id" element={<LotePage bodegas={data} />} />
         </Route>
       </Routes>
     </div>

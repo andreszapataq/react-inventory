@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 
-const LotePage = () => {
+const LotePage = ({ bodegas }) => {
   let location = useLocation()
   const bodega = location.state?.bodega?.nombre
 
@@ -13,9 +13,12 @@ const LotePage = () => {
       <div className="lp-selection">
         <h3>Trasladar a...</h3>
         <select name="bodega" id="bodega">
-          <option value="bodega-1">Bodega 1</option>
+          {bodegas.map(item => (
+            <option key={item._id} value={item.nombre}>{item.nombre}</option>
+          ))}
+          {/* <option value="bodega-1">Bodega 1</option>
           <option value="bodega-2">Bodega 2</option>
-          <option value="bodega-3">Bodega 3</option>
+          <option value="bodega-3">Bodega 3</option> */}
         </select>
       </div>
       <div className="lp-notes">

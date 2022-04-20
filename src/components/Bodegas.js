@@ -5,8 +5,6 @@ import SearchBar from './SearchBar'
 import Bodega from "./Bodega"
 
 const Bodegas = ({ bodegas }) => {
-    console.log(bodegas)
-    
     const [filteredBodegas, setFilteredBodegas] = useState([])
 
     const handleChange = (filteredData) => {
