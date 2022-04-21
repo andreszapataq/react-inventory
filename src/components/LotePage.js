@@ -4,6 +4,8 @@ const LotePage = ({ bodegas }) => {
   let location = useLocation()
   const bodega = location.state?.bodega?.nombre
 
+  console.log(bodegas)
+
   return (
     <div className="LotePage">
       <div className="lp-title">
