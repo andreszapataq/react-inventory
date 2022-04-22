@@ -4,8 +4,6 @@ const LotePage = ({ bodegas }) => {
   let location = useLocation()
   const bodega = location.state?.bodega?.nombre
 
-  console.log(bodegas)
-
   return (
     <div className="LotePage">
       <div className="lp-title">
@@ -13,14 +11,11 @@ const LotePage = ({ bodegas }) => {
         <p>{bodega}</p>
       </div>
       <div className="lp-selection">
-        <h3>Trasladar a...</h3>
+        <h3>Trasladar a</h3>
         <select name="bodega" id="bodega">
           {bodegas.map(item => (
             <option key={item._id} value={item.nombre}>{item.nombre}</option>
           ))}
-          {/* <option value="bodega-1">Bodega 1</option>
-          <option value="bodega-2">Bodega 2</option>
-          <option value="bodega-3">Bodega 3</option> */}
         </select>
       </div>
       <div className="lp-notes">
