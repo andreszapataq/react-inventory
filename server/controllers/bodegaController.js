@@ -1,4 +1,4 @@
-const Bodega = '' //require Model
+const Bodega = require('../models/inventarioModel')
 
 exports.addBodega = async (req, res) => {
     const bodega = await Bodega.create(req.body)
