@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const CrearBodega = () => {
   return (
     <div className="CrearBodega">
@@ -14,7 +16,7 @@ const CrearBodega = () => {
       </div>
       <div className="cb-buttons">
         <button className="btn btn-grey">Cancelar</button>
-        <button className="btn btn-blue">Guardar</button>
+        <button className="btn btn-blue" onClick={() => axios.post()}>Guardar</button>
       </div>
     </div>
   )
