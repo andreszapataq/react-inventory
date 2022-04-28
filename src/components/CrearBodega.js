@@ -16,7 +16,7 @@ const CrearBodega = () => {
       </div>
       <div className="cb-buttons">
         <button className="btn btn-grey">Cancelar</button>
-        <button className="btn btn-blue" onClick={() => axios.post()}>Guardar</button>
+        <button className="btn btn-blue" onClick={() => axios.post('http://localhost:5004/api/v1/crear_bodega')}>Guardar</button>
       </div>
     </div>
   )
