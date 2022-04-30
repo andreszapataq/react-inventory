@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const inventarioRouter = require('./routes/inventarioRoutes');
+const bodegaRouter = require('./routes/bodegaRoutes')
 const usuarioRouter = require('./routes/usuarioRoutes')
 
 app.use(cors());
@@ -15,6 +16,7 @@ app.get('/', (req, res, next) => {
 
 // RUTAS
 app.use('/api/v1/inventario', inventarioRouter)
+app.use('/api/v1/crear-bodega', bodegaRouter)
 
 app.use('/api/v1/login', usuarioRouter)
 
