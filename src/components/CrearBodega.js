@@ -1,11 +1,13 @@
 import axios from "axios"
 
 const CrearBodega = () => {
+  const [bodegaName, setBodegaName] = ''
+  
   return (
     <div className="CrearBodega">
       <div className="cb-bodega">
         <h3>Nombre de bodega</h3>
-        <input type="text" />
+        <input type="text" value={bodegaName} />
       </div>
       <div className="cb-asesor">
         <h3>Asesor</h3>
