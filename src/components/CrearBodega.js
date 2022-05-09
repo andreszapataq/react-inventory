@@ -1,9 +1,9 @@
 import { useState } from "react"
 import axios from "axios"
 
-const CrearBodega = () => {
+const CrearBodega = ({ asesores }) => {
   const [bodegaName, setBodegaName] = useState('')
-  console.log(bodegaName)
+  console.log(asesores)
 
   return (
     <div className="CrearBodega">

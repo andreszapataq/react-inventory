@@ -83,7 +83,7 @@ function App() {
 
         <Route element={<PrivateLayout asesor={asesor} data={data} isLogged={isLogged} logout={logout} />}>
           <Route path="/" element={<Bodegas bodegas={data} />} />
-          <Route path="/crear-bodega" element={<CrearBodega />} />
+          <Route path="/crear-bodega" element={<CrearBodega asesores={data} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
           <Route path="/lotepage/:id" element={<LotePage bodegas={data} />} />
