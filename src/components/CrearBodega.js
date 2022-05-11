@@ -3,7 +3,7 @@ import axios from "axios"
 
 const CrearBodega = ({ asesores }) => {
   const [bodegaName, setBodegaName] = useState('')
-  console.log(asesores[1].asesor)
+  console.log(asesores)
 
   return (
     <div className="CrearBodega">
