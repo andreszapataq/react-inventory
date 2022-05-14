@@ -16,8 +16,11 @@ const CrearBodega = ({ asesores }) => {
       <div className="cb-asesor">
         <h3>Asesor</h3>
         <select name="asesor" id="asesor">
-          <option value="daniel-oliveros">Daniel Oliveros</option>
-          <option value="vive-solutions">Vive Solutions</option>
+          {asesores.map(asesor => (
+            <option key={asesor._id} value={asesor.asesor}>{asesor.asesor}</option>
+          ))}
+          {/* <option value="daniel-oliveros">Daniel Oliveros</option>
+          <option value="vive-solutions">Vive Solutions</option> */}
         </select>
       </div>
       <div className="cb-buttons">

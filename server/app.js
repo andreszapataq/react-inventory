@@ -17,6 +17,7 @@ app.get('/', (req, res, next) => {
 // RUTAS
 app.use('/api/v1/inventario', inventarioRouter)
 app.use('/api/v1/crear-bodega', bodegaRouter)
+app.use('/api/v1/asesores', bodegaRouter)
 
 app.use('/api/v1/login', usuarioRouter)
 
