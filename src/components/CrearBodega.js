@@ -3,6 +3,8 @@ import axios from "axios"
 
 const CrearBodega = ({ asesores }) => {
   const [bodegaName, setBodegaName] = useState('')
+  const [asesorId, setAsesorId] = useState('')
+
   console.log(asesores)
 
   return (
@@ -17,16 +19,15 @@ const CrearBodega = ({ asesores }) => {
         <h3>Asesor</h3>
         <select name="asesor" id="asesor">
           {asesores.map(asesor => (
-            <option key={asesor._id} value={asesor.asesor}>{asesor.asesor}</option>
+            <option key={asesor._id} value={asesor._id}>{asesor.asesor}</option>
           ))}
-          {/* <option value="daniel-oliveros">Daniel Oliveros</option>
-          <option value="vive-solutions">Vive Solutions</option> */}
         </select>
       </div>
       <div className="cb-buttons">
         <button className="btn btn-grey">Cancelar</button>
         <button className="btn btn-blue" onClick={() => axios.post('http://localhost:5004/api/v1/crear-bodega', {
-          nombre: bodegaName
+          nombre: bodegaName,
+          // asesor_id: asesorId
         })}>Guardar</button>
       </div>
     </div>
