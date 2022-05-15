@@ -17,7 +17,7 @@ const CrearBodega = ({ asesores }) => {
       </div>
       <div className="cb-asesor">
         <h3>Asesor</h3>
-        <select name="asesor" id="asesor">
+        <select name="asesor" id="asesor" onChange={(e) => setAsesorId(e.target.value)}>
           {asesores.map(asesor => (
             <option key={asesor._id} value={asesor._id}>{asesor.asesor}</option>
           ))}
@@ -27,7 +27,7 @@ const CrearBodega = ({ asesores }) => {
         <button className="btn btn-grey">Cancelar</button>
         <button className="btn btn-blue" onClick={() => axios.post('http://localhost:5004/api/v1/crear-bodega', {
           nombre: bodegaName,
-          // asesor_id: asesorId
+          asesor_id: asesorId
         })}>Guardar</button>
       </div>
     </div>
