@@ -5,8 +5,6 @@ const CrearBodega = ({ asesores }) => {
   const [bodegaName, setBodegaName] = useState('')
   const [asesorId, setAsesorId] = useState('')
 
-  console.log(asesores)
-
   return (
     <div className="CrearBodega">
       <div className="cb-bodega">
