@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const inventarioSchema = new mongoose.Schema({
     nombre: String,
     asesor_id: ObjectId,
-    stock: [Array]
+    stock: [Object]
 });
 
 const Inventario = mongoose.model('Bodegas', inventarioSchema);
