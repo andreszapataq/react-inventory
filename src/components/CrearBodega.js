@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 const CrearBodega = ({ asesores }) => {
   const [bodegaName, setBodegaName] = useState('')
   const [asesorId, setAsesorId] = useState('')
+
+  const navigate = useNavigate()
 
   return (
     <div className="CrearBodega">
@@ -22,7 +25,7 @@ const CrearBodega = ({ asesores }) => {
         </select>
       </div>
       <div className="cb-buttons">
-        <button className="btn btn-grey">Cancelar</button>
+        <button className="btn btn-grey" onClick={() => navigate(-1)}>Cancelar</button>
         <button className="btn btn-blue" onClick={() => axios.post('http://localhost:5004/api/v1/crear-bodega', {
           nombre: bodegaName,
           asesor_id: asesorId

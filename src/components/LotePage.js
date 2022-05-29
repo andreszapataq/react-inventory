@@ -1,8 +1,10 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const LotePage = ({ bodegas }) => {
   let location = useLocation()
   const bodega = location.state?.bodega?.nombre
+
+  const navigate = useNavigate()
 
   return (
     <div className="LotePage">
@@ -23,7 +25,7 @@ const LotePage = ({ bodegas }) => {
         <textarea name="notas" id="notas" cols="50" rows="4"></textarea>
       </div>
       <div className="lp-buttons">
-        <button className="btn btn-grey">Cancelar</button>
+        <button className="btn btn-grey" onClick={() => navigate(-1)}>Cancelar</button>
         <button className="btn btn-blue">Guardar</button>
       </div>
     </div>
