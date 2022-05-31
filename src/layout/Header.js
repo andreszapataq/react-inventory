@@ -18,7 +18,7 @@ const Header = ({ asesor }) => {
             )}
             {bodega && location.pathname.includes('/inventario/') &&
                 <div className="header-row-1">
-                    <h1 className="text-bodega">{bodega}</h1>
+                    <h1 className={bodega.length < 25 ? "text-bodega-xl" : "text-bodega-md"}>{bodega}</h1>
                 </div>   
             }
             {item &&

@@ -234,7 +234,12 @@ a {
   font-weight: 600;
 }
 
-.text-bodega {
+.text-bodega-md {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.text-bodega-xl {
   font-size: 28px;
   font-weight: 600;
 }
