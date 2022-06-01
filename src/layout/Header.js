@@ -8,6 +8,8 @@ const Header = ({ asesor }) => {
     const lote = location.state?.el
     const crearBodega = location.state
 
+    console.log(asesor)
+
     return (
         <header className='header'>
             {location.pathname === "/" && (
