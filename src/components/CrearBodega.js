@@ -12,7 +12,7 @@ const CrearBodega = ({ asesores }) => {
     <div className="CrearBodega">
       <div className="cb-bodega">
         <h3>Nombre de bodega</h3>
-        <input type="text" placeholder="Ponle nombre a tú bodega" value={bodegaName} onChange={(e) => {
+        <input type="text" placeholder="Ponle nombre a tu bodega" value={bodegaName} onChange={(e) => {
           setBodegaName(e.target.value)
         }} />
       </div>
