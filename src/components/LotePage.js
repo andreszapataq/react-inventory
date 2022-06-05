@@ -22,7 +22,7 @@ const LotePage = ({ bodegas }) => {
       </div>
       <div className="lp-notes">
         <h3>Notas</h3>
-        <textarea name="notas" id="notas" cols="50" rows="4"></textarea>
+        <textarea name="notas" id="notas" placeholder="Escribe notas acerca de este lote..." cols="50" rows="4"></textarea>
       </div>
       <div className="lp-buttons">
         <button className="btn btn-grey" onClick={() => navigate(-1)}>Cancelar</button>
