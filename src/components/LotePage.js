@@ -6,6 +6,8 @@ const LotePage = ({ bodegas }) => {
 
   const navigate = useNavigate()
 
+  console.log(bodegas)
+
   return (
     <div className="LotePage">
       <div className="lp-title">
