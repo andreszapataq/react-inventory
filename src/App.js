@@ -21,6 +21,8 @@ function App() {
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const [token, setToken] = useState(localStorage.getItem('token'))
   
+  console.log(data)
+  
   const navigate = useNavigate()
   
   // let token = ''
