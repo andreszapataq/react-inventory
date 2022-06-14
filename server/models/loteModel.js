@@ -1,7 +1,11 @@
+const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
 
 const loteSchema = new mongoose.Schema({
-    bodega_actual: String,
+    producto: ObjectId,
+    lote: String,
+    fecha_vencimiento: String,
+    bodega_actual: ObjectId,
     notas: String
 })
 
