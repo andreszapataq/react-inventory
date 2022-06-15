@@ -2,7 +2,7 @@ const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
 
 const loteSchema = new mongoose.Schema({
-    producto: ObjectId,
+    referencia: ObjectId,
     lote: String,
     fecha_vencimiento: String,
     bodega_actual: ObjectId,

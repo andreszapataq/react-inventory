@@ -15,13 +15,12 @@ import Lotes from "./components/Lotes"
 import LotePage from "./components/LotePage"
 
 function App() {
+  const [lote, setLote] = useState([])
   const [asesores, setAsesores] = useState([])
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const [token, setToken] = useState(localStorage.getItem('token'))
-  
-  console.log(data)
   
   const navigate = useNavigate()
   
@@ -37,9 +36,27 @@ function App() {
       await fetchAsesores(token)
     }
 
+    const getLotes = async () => {
+      await fetchLote(token)
+    }
+
     if(token) getAsesores()
     if(token) getInventario()
+    if(token) getLotes()
   }, [token])
+
+  const fetchLote = async (token) => {
+    const res = await fetch('http://localhost:5004/api/v1/lote', {
+      headers: {
+        authToken: token
+      }
+    })
+    const lotes = await res.json()
+
+    setLote(lotes.data)
+  }
+
+  console.log(lote)
 
   const fetchInventario = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/inventario', {

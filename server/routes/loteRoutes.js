@@ -5,6 +5,7 @@ const router = express.Router()
 
 router
     .route('/')
+    .get(loteController.getLote)
     .post(loteController.addLote)
 
 module.exports = router
