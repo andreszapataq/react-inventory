@@ -1,11 +1,11 @@
-const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
-const loteSchema = new mongoose.Schema({
-    referencia: ObjectId,
+const loteSchema = new Schema({
+    referencia: { type: Schema.Types.ObjectId, ref: "Referencias" },
     lote: String,
     fecha_vencimiento: String,
-    bodega_actual: ObjectId,
+    bodega_actual: { type: Schema.Types.ObjectId, ref: "Bodegas" },
     notas: String
 })
 
