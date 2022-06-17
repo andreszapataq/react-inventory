@@ -1,7 +1,10 @@
 const Lote = require('../models/loteModel')
 
 exports.getLote = async (req, res) => {
-    const lote = await Lote.find({}).populate('referencia')
+    const lote = await Lote
+    .find()
+    .populate({ path: 'referencias', select: 'nombre' })
+    .populate({ path: 'bodegas', select: 'nombre'  })
     res.status(200).json({
         status: "Success",
         data: lote
