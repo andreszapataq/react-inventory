@@ -2,6 +2,7 @@ const Lote = require('../models/loteModel')
 
 exports.getLote = async (req, res) => {
     const lote = await Lote.find({})
+    // console.log(lote)
     res.status(200).json({
         status: "Success",
         data: lote

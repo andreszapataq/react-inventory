@@ -70,6 +70,8 @@ function App() {
     setData(data.data)
   }
 
+  console.log(data)
+
   const fetchAsesores = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/asesores', {
       headers: {
