@@ -11,6 +11,7 @@ const bodegaSchema = new Schema({
 bodegaSchema.pre([/^find/, "save"], function(next) {
     this
     .populate({path: "asesor_id"})
+    next()
 })
 
 const Bodega = mongoose.model('Bodegas', bodegaSchema)
