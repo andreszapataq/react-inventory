@@ -56,7 +56,7 @@ function App() {
     setLote(lotes.data)
   }
 
-  console.log(lote)
+  // console.log(lote)
 
   const fetchInventario = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/inventario', {
