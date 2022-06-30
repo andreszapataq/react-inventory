@@ -14,6 +14,8 @@ const Inventario = () => {
 
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
+  console.log(filteredBodegas)
+
   const handleChange = (filteredData) => {
     parseStock(filteredData)
   };
@@ -28,9 +30,9 @@ const Inventario = () => {
 
     stockArg?.forEach((item) => {
       // Si el codigo existe en el array, +1 la cantidad
-      if (uniqueCodigos.includes(item.codigo)) {
+      if (uniqueCodigos.includes(item.referencia.codigo)) {
         newStock.forEach((newItem) => {
-          if (newItem.codigo === item.codigo) {
+          if (newItem.codigo === item.referencia.codigo) {
             newItem.cantidad = newItem.cantidad + 1;
             newItem.lotes.push({
               lote: item.lote,
@@ -41,19 +43,20 @@ const Inventario = () => {
       } else {
         // Si no existe en el array, agregarlo con cantidad 1
         newStock.push({
-          codigo: item.codigo,
-          nombre: item.nombre,
+          codigo: item.referencia.codigo,
+          nombre: item.referencia.nombre,
           lotes: [
             { lote: item.lote, fecha_vencimiento: item.fecha_vencimiento },
           ],
           cantidad: 1,
         });
-        uniqueCodigos.push(item.codigo);
+        uniqueCodigos.push(item.referencia.codigo);
       }
     });
 
     newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1));
     setFilteredBodegas(newStock);
+    console.log(newStock)
   };
 
   return (

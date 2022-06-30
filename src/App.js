@@ -19,6 +19,7 @@ function App() {
   const [asesores, setAsesores] = useState([])
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
+  const [almacenes, setAlmacenes] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const [token, setToken] = useState(localStorage.getItem('token'))
   
@@ -40,9 +41,14 @@ function App() {
       await fetchLote(token)
     }
 
+    const getAlmacenes = async () => {
+      await fetchAlmacenes(token)
+    }
+
     if(token) getAsesores()
     if(token) getInventario()
     if(token) getLotes()
+    if(token) getAlmacenes()
   }, [token])
 
   const fetchLote = async (token) => {
@@ -71,6 +77,19 @@ function App() {
   }
 
   console.log(data)
+
+  const fetchAlmacenes = async (token) => {
+    const res = await fetch('http://localhost:5004/api/v1/bodegas', {
+      headers: {
+        authToken: token
+      }
+    })
+    const almacenes = await res.json()
+
+    setAlmacenes(almacenes.data)
+  }
+
+  console.log(almacenes)
 
   const fetchAsesores = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/asesores', {
@@ -120,7 +139,7 @@ function App() {
         <Route path="/login" element={<Login checkLogin={checkLogin} />} />
 
         <Route element={<PrivateLayout asesor={asesor} data={data} isLogged={isLogged} logout={logout} />}>
-          <Route path="/" element={<Bodegas bodegas={data} />} />
+          <Route path="/" element={<Bodegas bodegas={almacenes} />} />
           <Route path="/crear-bodega" element={<CrearBodega asesores={asesores} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
