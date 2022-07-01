@@ -7,7 +7,6 @@ const loteSchema = new Schema({
     referencia: { type: Schema.Types.ObjectId, ref: "Referencias" },
     lote: String,
     fecha_vencimiento: String,
-    bodega_actual: { type: Schema.Types.ObjectId, ref: "Bodegas" },
     notas: String
 })
 
