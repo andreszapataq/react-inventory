@@ -27,6 +27,12 @@ const Inventario = () => {
   const parseStock = (stockArg) => {
     const newStock = [];
     const uniqueCodigos = [];
+    const count = {}
+
+    stockArg?.forEach(element => {
+      count[element] = (count[element] || 0) + 1
+    })
+    console.log(count)
 
     stockArg?.forEach((item) => {
       // Si el codigo existe en el array, +1 la cantidad
