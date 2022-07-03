@@ -29,7 +29,9 @@ const Inventario = () => {
     const uniqueCodigos = [];
     const count = {}
 
-    stockArg?.forEach(element => {
+    console.log(stockArg)
+
+    stockArg?.referencia?.codigo.forEach(element => {
       count[element] = (count[element] || 0) + 1
     })
     console.log(count)
