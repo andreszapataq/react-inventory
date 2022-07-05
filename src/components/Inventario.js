@@ -27,6 +27,7 @@ const Inventario = () => {
   const parseStock = (stockArg) => {
     const newStock = [];
     const uniqueCodigos = [];
+    const counts = {}
 
     console.log(stockArg)
 
