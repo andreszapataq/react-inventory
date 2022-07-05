@@ -29,6 +29,10 @@ const Inventario = () => {
     const uniqueCodigos = [];
     const counts = {}
 
+    const codigos = stockArg.map((codigo) => {
+      
+    })
+
     console.log(stockArg)
 
     stockArg?.forEach((item) => {
