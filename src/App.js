@@ -62,8 +62,6 @@ function App() {
     setLote(lotes.data)
   }
 
-  console.log(lote)
-
   const fetchInventario = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/inventario', {
       headers: {
@@ -76,8 +74,6 @@ function App() {
     setData(data.data)
   }
 
-  console.log(data)
-
   const fetchAlmacenes = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/bodegas', {
       headers: {
@@ -88,8 +84,6 @@ function App() {
 
     setAlmacenes(almacenes.data)
   }
-
-  console.log(almacenes)
 
   const fetchAsesores = async (token) => {
     const res = await fetch('http://localhost:5004/api/v1/asesores', {

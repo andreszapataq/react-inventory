@@ -9,12 +9,7 @@ const Inventario = () => {
   const bodega = location.state?.bodega
   let stock = bodega?.stock
 
-  console.log(bodega)
-  console.log(stock)
-
   const [filteredBodegas, setFilteredBodegas] = useState([])
-
-  console.log(filteredBodegas)
 
   const handleChange = (filteredData) => {
     parseStock(filteredData)
@@ -27,11 +22,6 @@ const Inventario = () => {
   const parseStock = (stockArg) => {
     const newStock = [];
     const uniqueCodigos = [];
-    const counts = {}
-
-    const codigos = stockArg.map((codigo) => {
-      
-    })
 
     console.log(stockArg)
 
@@ -63,7 +53,6 @@ const Inventario = () => {
 
     newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1));
     setFilteredBodegas(newStock);
-    console.log(newStock)
   };
 
   return (

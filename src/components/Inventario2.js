@@ -9,9 +9,6 @@ const Inventario = () => {
   const bodega = location.state?.bodega
   let stock = bodega?.stock
 
-  console.log(bodega)
-  console.log(stock)
-
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
   const handleChange = (filteredData) => {
