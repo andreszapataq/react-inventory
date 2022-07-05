@@ -11,12 +11,25 @@ const Inventario = () => {
 
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
+  const inventarioCodigos = () => {
+    const count = {}
+    
+    const codigos = stock.map((element) => (
+      element.referencia.codigo
+    ))
+
+    codigos.forEach((element) => { count[element] = (count[element] || 0) + 1 })
+
+    console.log(count)
+  }
+
   const handleChange = (filteredData) => {
     parseStock(filteredData)
   };
 
   useEffect(() => {
     parseStock(stock)
+    inventarioCodigos()
   }, [stock])
 
   const parseStock = (stockArg) => {
