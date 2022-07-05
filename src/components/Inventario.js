@@ -12,15 +12,15 @@ const Inventario = () => {
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
   const inventarioCodigos = () => {
-    const count = {}
+    const counts = {}
     
     const codigos = stock.map((element) => (
       element.referencia.codigo
     ))
 
-    codigos.forEach((element) => { count[element] = (count[element] || 0) + 1 })
+    codigos.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
 
-    console.log(count)
+    console.log(counts)
   }
 
   const handleChange = (filteredData) => {
