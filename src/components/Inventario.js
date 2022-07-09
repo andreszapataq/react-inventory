@@ -10,15 +10,19 @@ const Inventario = () => {
   let stock = bodega?.stock
 
   const [filteredBodegas, setFilteredBodegas] = useState([])
+  
+  console.log(filteredBodegas)
 
   const inventarioCodigos = () => {
-    const counts = {}
+    const counts = []
     
     const codigos = stock.map((element) => (
       element.referencia.codigo
     ))
 
     codigos.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
+    
+    setFilteredBodegas(counts);
 
     console.log(counts)
   }
@@ -65,7 +69,8 @@ const Inventario = () => {
     });
 
     newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1));
-    setFilteredBodegas(newStock);
+    // setFilteredBodegas(newStock);
+    
   };
 
   return (
