@@ -20,6 +20,8 @@ const Inventario = () => {
       element.referencia.codigo
     ))
 
+    console.log(codigos)
+
     codigos.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
     
     setFilteredBodegas(counts);
