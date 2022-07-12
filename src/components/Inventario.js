@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import Item from "./Item";
 
 const Inventario = () => {
@@ -10,8 +10,16 @@ const Inventario = () => {
   let stock = bodega?.stock
 
   const [filteredBodegas, setFilteredBodegas] = useState([])
-  
-  console.log(filteredBodegas)
+
+  /* const handleChange = (filteredData) => {
+    inventarioCodigos(filteredData)
+  }; */
+
+  useEffect(() => {
+    // parseStock(stock)
+    inventarioCodigos()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const inventarioCodigos = () => {
     const counts = []
@@ -29,16 +37,7 @@ const Inventario = () => {
     console.log(counts)
   }
 
-  const handleChange = (filteredData) => {
-    parseStock(filteredData)
-  };
-
-  useEffect(() => {
-    parseStock(stock)
-    inventarioCodigos()
-  }, [stock])
-
-  const parseStock = (stockArg) => {
+  /* const parseStock = (stockArg) => {
     const newStock = [];
     const uniqueCodigos = [];
 
@@ -73,11 +72,11 @@ const Inventario = () => {
     newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1));
     // setFilteredBodegas(newStock);
     
-  };
+  }; */
 
   return (
     <div className="list-section">
-      <SearchBar data={stock} handleChange={handleChange} filterBy="nombre" />
+      {/* <SearchBar data={stock} handleChange={handleChange} filterBy="nombre" /> */}
       {filteredBodegas.map((item, index) => (
         <div key={index}>
           <Link to={`/lotes/${index}`} state={{ item, bodega }}>
