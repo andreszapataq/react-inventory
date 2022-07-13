@@ -32,10 +32,12 @@ const Inventario = () => {
 
     codigos.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
     
-    setFilteredBodegas(counts);
-
     console.log(counts)
+
+    setFilteredBodegas(counts);
   }
+  
+  console.log(filteredBodegas)
 
   /* const parseStock = (stockArg) => {
     const newStock = [];
