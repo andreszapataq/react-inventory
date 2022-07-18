@@ -9,6 +9,8 @@ const Inventario = () => {
   const bodega = location.state?.bodega
   let stock = bodega?.stock
 
+  console.log('stock', stock)
+
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
   /* const handleChange = (filteredData) => {
@@ -31,10 +33,10 @@ const Inventario = () => {
     console.log(codigos)
 
     codigos.forEach((x) => { 
-      counts[x] = (counts[x] || 0) + 1 
+      counts[x] = (counts[x] || 0) + 1
     })
     
-    // console.log(counts)
+    console.log(counts)
 
     setFilteredBodegas(counts);
   }
