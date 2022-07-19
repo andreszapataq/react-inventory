@@ -25,6 +25,7 @@ const Inventario = () => {
 
   const inventarioCodigos = () => {
     const counts = []
+    const newStock = []
     
     const codigos = stock.map((element) => (
       element.referencia.codigo
