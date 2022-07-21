@@ -15,6 +15,7 @@ import Lotes from "./components/Lotes"
 import LotePage from "./components/LotePage"
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [lote, setLote] = useState([])
   const [asesores, setAsesores] = useState([])
   const [asesor, setAsesor] = useState([])

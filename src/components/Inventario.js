@@ -24,10 +24,17 @@ const Inventario = () => {
   }, [])
 
   const inventarioCodigos = () => {
-    const uniqueCodigos = []
+    // const uniqueCodigos = []
     const newStock = []
+
+    stock.forEach((item) => {
+      newStock.push({
+        codigo: item.referencia.codigo,
+        nombre: item.referencia.nombre
+      })
+    })
     
-    const codigos = stock.map((element) => (
+    /* const codigos = stock.map((element) => (
       element.referencia.codigo
     ))
 
@@ -37,9 +44,9 @@ const Inventario = () => {
       uniqueCodigos[x] = (uniqueCodigos[x] || 0) + 1
     })
     
-    console.log(uniqueCodigos)
+    console.log(uniqueCodigos) */
 
-    setFilteredBodegas(uniqueCodigos);
+    setFilteredBodegas(newStock);
   }
   
   console.log(filteredBodegas)
