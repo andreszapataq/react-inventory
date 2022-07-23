@@ -49,7 +49,7 @@ const Inventario = () => {
     setFilteredBodegas(newStock);
   }
   
-  // console.log(filteredBodegas)
+  console.log(filteredBodegas)
 
   /* const parseStock = (stockArg) => {
     const newStock = [];
