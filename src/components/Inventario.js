@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 import Item from "./Item";
 
 const Inventario = () => {
@@ -9,59 +9,25 @@ const Inventario = () => {
   const bodega = location.state?.bodega
   let stock = bodega?.stock
 
-  console.log('stock', stock)
-
   const [filteredBodegas, setFilteredBodegas] = useState([])
 
-  /* const handleChange = (filteredData) => {
-    inventarioCodigos(filteredData)
-  }; */
+  const handleChange = (filteredData) => {
+    parseStock(filteredData)
+  };
 
   useEffect(() => {
-    // parseStock(stock)
-    inventarioCodigos()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    parseStock(stock)
+  }, [stock])
 
-  const inventarioCodigos = () => {
-    const uniqueCodigos = []
-    const newStock = []
-
-    stock.forEach((item) => {
-      newStock.push({
-        codigo: item.referencia.codigo,
-        nombre: item.referencia.nombre
-      })
-    })
-    
-    const codigos = newStock.map((element) => (
-      element.codigo
-    ))
-
-    console.log(codigos)
-
-    codigos.forEach((x) => { 
-      uniqueCodigos[x] = (uniqueCodigos[x] || 0) + 1
-    })
-    
-    console.log(uniqueCodigos)
-
-    setFilteredBodegas(newStock);
-  }
-  
-  console.log(filteredBodegas)
-
-  /* const parseStock = (stockArg) => {
+  const parseStock = (stockArg) => {
     const newStock = [];
     const uniqueCodigos = [];
 
-    console.log(stockArg)
-
     stockArg?.forEach((item) => {
       // Si el codigo existe en el array, +1 la cantidad
-      if (uniqueCodigos.includes(item.referencia.codigo)) {
+      if (uniqueCodigos.includes(item.codigo)) {
         newStock.forEach((newItem) => {
-          if (newItem.codigo === item.referencia.codigo) {
+          if (newItem.codigo === item.codigo) {
             newItem.cantidad = newItem.cantidad + 1;
             newItem.lotes.push({
               lote: item.lote,
@@ -72,25 +38,24 @@ const Inventario = () => {
       } else {
         // Si no existe en el array, agregarlo con cantidad 1
         newStock.push({
-          codigo: item.referencia.codigo,
-          nombre: item.referencia.nombre,
+          codigo: item.codigo,
+          nombre: item.nombre,
           lotes: [
             { lote: item.lote, fecha_vencimiento: item.fecha_vencimiento },
           ],
           cantidad: 1,
         });
-        uniqueCodigos.push(item.referencia.codigo);
+        uniqueCodigos.push(item.codigo);
       }
     });
 
     newStock.sort((a, b) => (a.codigo > b.codigo ? 1 : -1));
-    // setFilteredBodegas(newStock);
-    
-  }; */
+    setFilteredBodegas(newStock);
+  };
 
   return (
     <div className="list-section">
-      {/* <SearchBar data={stock} handleChange={handleChange} filterBy="nombre" /> */}
+      <SearchBar data={stock} handleChange={handleChange} filterBy="nombre" />
       {filteredBodegas.map((item, index) => (
         <div key={index}>
           <Link to={`/lotes/${index}`} state={{ item, bodega }}>

@@ -20,6 +20,7 @@ function App() {
   const [asesores, setAsesores] = useState([])
   const [asesor, setAsesor] = useState([])
   const [data, setData] = useState([])
+  // eslint-disable-next-line no-unused-vars
   const [almacenes, setAlmacenes] = useState([])
   const [isLogged, setIslogged] = useState(JSON.parse(localStorage.getItem('logged')))
   const [token, setToken] = useState(localStorage.getItem('token'))
@@ -134,7 +135,7 @@ function App() {
         <Route path="/login" element={<Login checkLogin={checkLogin} />} />
 
         <Route element={<PrivateLayout asesor={asesor} data={data} isLogged={isLogged} logout={logout} />}>
-          <Route path="/" element={<Bodegas bodegas={almacenes} />} />
+          <Route path="/" element={<Bodegas bodegas={data} />} />
           <Route path="/crear-bodega" element={<CrearBodega asesores={asesores} />} />
           <Route path="/inventario/:id" element={<Inventario />} />
           <Route path="/lotes/:id" element={<Lotes />} />
