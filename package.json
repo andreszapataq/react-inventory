@@ -28,7 +28,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "tail": "tailwindcss -i ./src/input.css -o ./src/index.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./src/index.css --watch",
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 5000"
   },
@@ -49,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
   }
 }
